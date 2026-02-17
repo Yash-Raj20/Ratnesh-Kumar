@@ -11,7 +11,56 @@ import {
 import ElectricNodesBg from "@/components/ui/ElectricNodesBg";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
+import { useState } from "react";
+
 export default function ContactPage() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+    });
+    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('submitting');
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+                    ...formData,
+                }),
+            });
+
+            const result = await res.json();
+
+            if (result.success) {
+                setStatus('success');
+                setFormData({ name: "", email: "", subject: "", message: "" });
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+                console.error("Web3Forms Error:", result);
+                // alert("Form submission failed: " + (result.message || "Unknown error"));
+            }
+        } catch (error) {
+            console.error("Fetch Error:", error);
+            setStatus('error');
+            // alert("Something went wrong. Please check your internet connection.");
+        }
+    };
+
     const contactInfo = [
         {
             icon: Mail,
@@ -178,12 +227,19 @@ export default function ContactPage() {
                             {/* Decorative */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-[2.5rem]" />
 
-                            <form className="space-y-8 relative z-10">
+                            <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                                {/* Access Key from Environment Variable */}
+                                <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY} />
+
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">Name</label>
                                         <Input
                                             id="name"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
                                             placeholder="John Doe"
                                             className="bg-background/50 border-border/50 h-14 rounded-2xl focus-visible:ring-primary/30 transition-all hover:bg-background/80"
                                         />
@@ -192,7 +248,11 @@ export default function ContactPage() {
                                         <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">Email</label>
                                         <Input
                                             id="email"
+                                            name="email"
                                             type="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            required
                                             placeholder="john@example.com"
                                             className="bg-background/50 border-border/50 h-14 rounded-2xl focus-visible:ring-primary/30 transition-all hover:bg-background/80"
                                         />
@@ -202,6 +262,10 @@ export default function ContactPage() {
                                     <label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">Subject</label>
                                     <Input
                                         id="subject"
+                                        name="subject"
+                                        value={formData.subject}
+                                        onChange={handleChange}
+                                        required
                                         placeholder="Project Inquiry"
                                         className="bg-background/50 border-border/50 h-14 rounded-2xl focus-visible:ring-primary/30 transition-all hover:bg-background/80"
                                     />
@@ -210,16 +274,40 @@ export default function ContactPage() {
                                     <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">Message</label>
                                     <Textarea
                                         id="message"
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
                                         placeholder="Tell me about your project context, timeline, and goals..."
                                         className="min-h-[200px] bg-background/50 border-border/50 rounded-2xl resize-none focus-visible:ring-primary/30 transition-all hover:bg-background/80 p-5 leading-relaxed"
                                     />
                                 </div>
 
-                                <Button size="lg" className="w-full rounded-2xl text-lg h-14 bg-gradient-to-r from-primary to-purple-600 hover:to-primary text-white shadow-lg shadow-primary/25 transition-all duration-500 group relative overflow-hidden">
+
+
+                                <Button
+                                    type="submit"
+                                    disabled={status === 'submitting'}
+                                    size="lg"
+                                    className="w-full rounded-2xl text-lg h-14 bg-gradient-to-r from-primary to-purple-600 hover:to-primary text-white shadow-lg shadow-primary/25 transition-all duration-500 group relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed"
+                                >
                                     <span className="relative z-10 flex items-center justify-center gap-2">
-                                        Send Message <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        {status === 'submitting' ? (
+                                            <>Sending...</>
+                                        ) : status === 'success' ? (
+                                            <>Message Sent! <CheckCircle2 className="w-5 h-5" /></>
+                                        ) : (
+                                            <>Send Message <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
+                                        )}
                                     </span>
                                 </Button>
+
+                                {status === 'error' && (
+                                    <p className="text-red-500 text-sm text-center mt-2">Something went wrong. Please try again or email directly.</p>
+                                )}
+                                {status === 'success' && (
+                                    <p className="text-green-500 text-sm text-center mt-2">Thanks for reaching out! I'll get back to you soon.</p>
+                                )}
                             </form>
                         </motion.div>
 
