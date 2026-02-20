@@ -69,7 +69,7 @@ export default function ElectricNodesBg() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
 
-            const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 80);
+            const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 25000), 50);
             particles = [];
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle(canvas.width, canvas.height));

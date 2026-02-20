@@ -9,6 +9,8 @@ import Gallery from "@/components/sections/Gallery"; // New
 import WorkExperience from "@/components/sections/WorkExperience";
 import Insights from "@/components/sections/Insights"; // New
 import CallToAction from "@/components/sections/CallToAction"; // New
+import GithubContributions from "@/components/sections/GithubContributions";
+import Guestbook from "@/components/sections/Guestbook";
 // import ContactCTA from "@/components/sections/ContactCTA"; // Identifying overlap with CallToAction
 
 export default function Home() {
@@ -22,6 +24,8 @@ export default function Home() {
       <Process />
       <WorkExperience />
       <Gallery />
+      <GithubContributions />
+      <Guestbook />
       <Testimonials />
       <Insights />
       <CallToAction />

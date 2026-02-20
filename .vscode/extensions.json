@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "PKief.material-icon-theme",
+        "dracula-theme.theme-dracula",
+        "usernamehw.errorlens",
+        "naumovs.color-highlight",
+        "formulahendry.auto-rename-tag",
+        "esbenp.prettier-vscode",
+        "oderwat.indent-rainbow",
+        "aaron-bond.better-comments",
+        "johnpapa.vscode-peacock",
+        "robbowen.synthwave-84",
+        "ahmadawais.shades-of-purple",
+        "pnp.polacode"
+    ]
+}

@@ -68,7 +68,7 @@ export default function CustomCursor() {
 
     return (
         <motion.div
-            className="fixed left-0 top-0 w-6 h-6 bg-white rounded-full pointer-events-none mix-blend-difference z-[9999]"
+            className="fixed left-0 top-0 w-6 h-6 bg-white rounded-full pointer-events-none mix-blend-difference z-[9999] hidden lg:block"
             style={{
                 translateX: cursorXSpring,
                 translateY: cursorYSpring,

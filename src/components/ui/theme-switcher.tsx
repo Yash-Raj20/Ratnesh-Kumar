@@ -25,9 +25,10 @@ export function ThemeSwitcher() {
 
     React.useEffect(() => {
         setMounted(true);
-        const savedColor = localStorage.getItem('color-theme');
-        if (savedColor) {
-            document.documentElement.setAttribute('data-theme', savedColor);
+        const savedColor = localStorage.getItem('color-theme') || 'rose';
+        document.documentElement.setAttribute('data-theme', savedColor);
+        if (!localStorage.getItem('color-theme')) {
+            localStorage.setItem('color-theme', 'rose');
         }
     }, []);
 
@@ -120,11 +121,11 @@ export function ThemeSwitcher() {
             <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full w-10 h-10 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors"
+                className="rounded-full w-10 h-10 bg-zinc-800/50 hover:bg-zinc-800 border border-white/5 text-zinc-400 hover:text-white transition-all shadow-inner group"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 group-hover:scale-110" />
+                <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 group-hover:scale-110" />
                 <span className="sr-only">Toggle theme</span>
             </Button>
 

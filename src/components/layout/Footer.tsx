@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Github, Linkedin, Twitter, Instagram, ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { StatusWidget } from "@/components/ui/StatusWidget";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -65,7 +66,10 @@ export default function Footer() {
                 }
             `}</style>
 
-            <div className="container mx-auto px-6 py-20">
+            <div className="container mx-auto px-6 py-8">
+                <div className="flex justify-center mb-12 opacity-80 hover:opacity-100 transition-opacity">
+                    <StatusWidget />
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
                     {/* Brand Column */}
                     <div className="lg:col-span-4 space-y-6">
@@ -140,9 +144,12 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-sm text-zinc-500">
-                        © {currentYear} Ratnesh. All rights reserved.
-                    </p>
+                    <div className="flex items-center gap-4">
+                        <p className="text-sm text-zinc-500">
+                            © {currentYear} Ratnesh. All rights reserved.
+                        </p>
+
+                    </div>
                     <div className="flex gap-6 text-sm text-zinc-500">
                         <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                         <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

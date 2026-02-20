@@ -5,6 +5,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
+import SocialDock from "@/components/layout/SocialDock";
+import { SpotlightBg } from "@/components/ui/SpotlightBg";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { cn } from "@/lib/utils";
 
@@ -39,12 +41,14 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           <SmoothScroll>
             <CustomCursor />
+            <SpotlightBg />
+            <SocialDock />
             <Header />
             <main className="min-h-screen pt-20">
               {children}

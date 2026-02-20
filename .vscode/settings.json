@@ -1,0 +1,20 @@
+{
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.semanticHighlighting.enabled": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.lineHeight": 1.6,
+    "editor.letterSpacing": 0.5,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#6272a4",
+        "statusBar.foreground": "#f8f8f2",
+        "activityBar.background": "#282a36",
+        "sideBar.background": "#282a36",
+        "editor.background": "#282a36",
+        "editorGroupHeader.tabsBackground": "#282a36",
+        "tab.activeBackground": "#44475a",
+        "tab.activeForeground": "#f8f8f2"
+    },
+    "peacock.color": "#6272a4"
+}
