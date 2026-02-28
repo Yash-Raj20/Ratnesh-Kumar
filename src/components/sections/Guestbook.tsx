@@ -12,6 +12,7 @@ import {
     Sparkles,
     CheckCircle2
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface Signature {
     id: number;
@@ -30,6 +31,7 @@ const mockSignatures: Signature[] = [
 ];
 
 export default function Guestbook() {
+    const { t } = useTranslation();
     const [signatures, setSignatures] = useState<Signature[]>(mockSignatures);
     const [isSigning, setIsSigning] = useState(false);
     const [newName, setNewName] = useState("");
@@ -61,7 +63,7 @@ export default function Guestbook() {
     };
 
     return (
-        <section className="py-24 relative overflow-hidden bg-zinc-50/50 dark:bg-zinc-900/10">
+        <section className="py-16 md:py-32 px-6 md:px-20 relative overflow-hidden bg-zinc-50/50 dark:bg-zinc-900/10">
             {/* Background Decorations */}
             <div className="absolute top-1/4 -left-20 w-80 h-80 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none" />
@@ -69,12 +71,12 @@ export default function Guestbook() {
             <div className="container px-6 lg:px-30 mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <div className="max-w-xl">
-                        <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-primary mb-4">Community</h2>
+                        <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-primary mb-4">{t("guestbook.title")}</h2>
                         <h3 className="text-3xl md:text-5xl font-heading font-bold mb-6">
-                            Guestbook <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">& Wall of Love.</span>
+                            {t("guestbook.heading1")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">{t("guestbook.heading2")}</span>
                         </h3>
                         <p className="text-muted-foreground">
-                            A space for visitors to leave their mark. Thank you for visiting my digital home!
+                            {t("guestbook.description")}
                         </p>
                     </div>
                     <button
@@ -82,7 +84,7 @@ export default function Guestbook() {
                         className="group relative px-8 py-4 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold overflow-hidden transition-all hover:scale-105 active:scale-95"
                     >
                         <span className="relative z-10 flex items-center gap-2">
-                            <PenTool className="w-5 h-5" /> Sign Guestbook
+                            <PenTool className="w-5 h-5" /> {t("guestbook.signButton")}
                         </span>
                         <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity" />
                     </button>
@@ -156,8 +158,8 @@ export default function Guestbook() {
                                         <div className="w-20 h-20 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-6">
                                             <CheckCircle2 className="w-10 h-10 text-emerald-500" />
                                         </div>
-                                        <h4 className="text-2xl font-bold mb-2">Signature Added!</h4>
-                                        <p className="text-zinc-500">Thank you for signing the guestbook.</p>
+                                        <h4 className="text-2xl font-bold mb-2">{t("guestbook.modal.successTitle")}</h4>
+                                        <p className="text-zinc-500">{t("guestbook.modal.successText")}</p>
                                     </div>
                                 ) : (
                                     <>
@@ -166,16 +168,16 @@ export default function Guestbook() {
                                                 <PenTool className="w-6 h-6 text-primary" />
                                             </div>
                                             <div>
-                                                <h4 className="text-2xl font-bold">Leave a Mark</h4>
-                                                <p className="text-sm text-zinc-500 uppercase font-bold tracking-widest">Guestbook Signature</p>
+                                                <h4 className="text-2xl font-bold">{t("guestbook.modal.title")}</h4>
+                                                <p className="text-sm text-zinc-500 uppercase font-bold tracking-widest">{t("guestbook.modal.subtitle")}</p>
                                             </div>
                                         </div>
 
                                         <form onSubmit={handleSign} className="space-y-6">
                                             <div className="space-y-2">
-                                                <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 pl-2">Display Name</label>
+                                                <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 pl-2">{t("guestbook.modal.labelName")}</label>
                                                 <input
-                                                    placeholder="Who are you?"
+                                                    placeholder={t("guestbook.modal.placeholderName")}
                                                     className="w-full h-14 bg-zinc-800 border border-white/5 rounded-2xl px-6 text-sm outline-none focus:border-primary/50 transition-all font-medium"
                                                     value={newName}
                                                     onChange={(e) => setNewName(e.target.value)}
@@ -183,9 +185,9 @@ export default function Guestbook() {
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 pl-2">Your Message</label>
+                                                <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 pl-2">{t("guestbook.modal.labelMessage")}</label>
                                                 <textarea
-                                                    placeholder="Say something nice..."
+                                                    placeholder={t("guestbook.modal.placeholderMessage")}
                                                     className="w-full h-32 bg-zinc-800 border border-white/5 rounded-2xl p-6 text-sm outline-none focus:border-primary/50 transition-all font-medium resize-none"
                                                     value={newMessage}
                                                     onChange={(e) => setNewMessage(e.target.value)}
@@ -196,7 +198,7 @@ export default function Guestbook() {
                                                 type="submit"
                                                 className="w-full h-14 rounded-2xl bg-primary text-primary-foreground font-heading font-bold text-lg shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
                                             >
-                                                Sign Guestbook
+                                                {t("guestbook.modal.submit")}
                                             </button>
                                         </form>
                                     </>

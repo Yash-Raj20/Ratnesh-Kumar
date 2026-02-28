@@ -43,7 +43,7 @@ export default function SitemapPage() {
     ];
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 md:px-20 relative overflow-hidden bg-background">
+        <div className="min-h-screen pt-40 md:pt-60 pb-20 px-6 md:px-20 relative overflow-hidden bg-background">
             <ElectricNodesBg />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 

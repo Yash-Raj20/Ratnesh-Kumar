@@ -12,6 +12,9 @@ import { blogPosts } from "@/data/blogData";
 import { Badge } from "@/components/ui/badge";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { Input } from "@/components/ui/input";
+import { MagneticButton } from "@/components/ui/MagneticButton";
+import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-javascript";
@@ -25,6 +28,7 @@ import "prismjs/components/prism-json";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function BlogPost() {
+    const { t } = useTranslation();
     const { slug } = useParams();
     const router = useRouter();
     const [mounted, setMounted] = useState(false);
@@ -204,6 +208,17 @@ export default function BlogPost() {
         );
     }
 
+    // Get translated post data if available, otherwise fallback to default
+    const postIndexForTranslation = blogPosts.findIndex(p => p.slug === slug) + 1; // Adjust index for translation keys
+    const translatedTitle = t(`blogPage.posts.${postIndexForTranslation}.title`, { defaultValue: post.title });
+    const translatedExcerpt = t(`blogPage.posts.${postIndexForTranslation}.excerpt`, { defaultValue: post.excerpt });
+    const translatedCategory = t(`blogPage.posts.${postIndexForTranslation}.category`, { defaultValue: post.category });
+    const translatedAuthorName = t(`blogPage.posts.${postIndexForTranslation}.author.name`, { defaultValue: post.author.name });
+    const translatedAuthorRole = t(`blogPage.posts.${postIndexForTranslation}.author.role`, { defaultValue: post.author.role });
+    const translatedAuthorBio = t(`blogPage.posts.${postIndexForTranslation}.author.bio`, { defaultValue: "Passionate about building accessible and performant web experiences. Constantly exploring new technologies and sharing insights with the community." });
+    const translatedNextPostTitle = t(`blogPage.posts.${blogPosts.findIndex(p => p.slug === nextPost.slug) + 1}.title`, { defaultValue: nextPost.title });
+
+
     return (
         <article ref={containerRef} className="min-h-screen bg-background text-foreground selection:bg-primary/20 relative">
 
@@ -248,31 +263,49 @@ export default function BlogPost() {
                 </Link>
             </div>
 
-            {/* Floating Like Button (Mobile/Desktop) */}
-            <motion.div
-                className="fixed bottom-8 right-8 z-40"
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 2, type: "spring" }}
-            >
-                <div className="relative">
-                    {showConfetti && (
-                        <div className="absolute inset-0 -top-20 flex justify-center pointer-events-none">
-                            <div className="text-4xl animate-bounce">🎉</div>
-                        </div>
-                    )}
-                    <Button
+            {/* Mobile Bottom Action Bar */}
+            <div className="fixed bottom-6 inset-x-0 z-40 flex justify-center px-6 lg:hidden">
+                <div className="flex items-center gap-3 p-2 rounded-full bg-zinc-900/90 backdrop-blur-xl border border-white/10 shadow-2xl">
+                    <Link href="/blog" className="flex items-center justify-center w-12 h-12 rounded-full bg-zinc-800 text-white hover:bg-zinc-700 transition-colors">
+                        <ArrowLeft className="w-5 h-5" />
+                    </Link>
+
+                    <div className="h-8 w-px bg-white/10 mx-1" />
+
+                    <button
                         onClick={handleLike}
-                        size="lg"
-                        className={`rounded-full shadow-2xl h-16 w-16 transition-all duration-300 ${hasLiked ? 'bg-primary text-primary-foreground scale-110' : 'bg-primary text-foreground border border-border/50 hover:border-primary'}`}
+                        className={cn(
+                            "flex items-center gap-2 px-6 h-12 rounded-full transition-all duration-300",
+                            hasLiked ? "bg-primary text-primary-foreground" : "bg-white/10 text-white hover:bg-white/20"
+                        )}
                     >
-                        <div className="flex flex-col items-center gap-0.5">
-                            <Heart className={`w-6 h-6 ${hasLiked ? 'fill-current' : ''}`} />
-                            <span className="text-[10px] font-bold">{124 + likes}</span>
-                        </div>
-                    </Button>
+                        <Heart className={cn("w-5 h-5", hasLiked && "fill-current")} />
+                        <span className="text-sm font-bold">{124 + likes}</span>
+                        {showConfetti && (
+                            <motion.span
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1.5, opacity: 0 }}
+                                className="absolute"
+                            >
+                                ❤️
+                            </motion.span>
+                        )}
+                    </button>
+
+                    <div className="h-8 w-px bg-white/10 mx-1" />
+
+                    <button className="flex items-center justify-center w-12 h-12 rounded-full bg-zinc-800 text-white" onClick={() => {
+                        if (navigator.share) {
+                            navigator.share({
+                                title: post.title,
+                                url: window.location.href,
+                            });
+                        }
+                    }}>
+                        <Share2 className="w-5 h-5" />
+                    </button>
                 </div>
-            </motion.div>
+            </div>
 
             {/* Hero Section */}
             <div className="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
@@ -285,10 +318,10 @@ export default function BlogPost() {
                         priority
                     />
                 </div>
-                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90" />
 
-                <div className="relative z-10 h-full max-w-5xl mx-auto px-6 flex flex-col justify-end pb-32 items-center text-center">
+                <div className="relative z-10 h-full max-w-5xl mx-auto px-6 flex flex-col justify-end pt-32 pb-32 items-center text-center">
                     <div className="hero-text mb-6">
                         <Badge variant="secondary" className="px-4 py-2 text-sm font-semibold tracking-wider uppercase bg-white/10 text-white backdrop-blur-md border-white/20">
                             {post.category}
@@ -316,9 +349,39 @@ export default function BlogPost() {
             <div className="max-w-7xl mx-auto px-6 py-20">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-                    {/* Sidebar (Left) - Share */}
+                    {/* Sidebar (Left) - Share & Like */}
                     <div className="hidden lg:flex lg:col-span-2 flex-col items-center gap-6 sticky top-32 h-fit">
-                        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground rotate-180 mb-2 vertical-rl">Share</p>
+                        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground rotate-180 mb-2 vertical-rl">Share & Love</p>
+
+                        <div className="flex flex-col items-center gap-3 w-full">
+                            <Button
+                                onClick={handleLike}
+                                size="icon"
+                                className={cn(
+                                    "rounded-full w-12 h-12 transition-all duration-300 shadow-lg",
+                                    hasLiked ? "bg-primary text-primary-foreground scale-110" : "bg-background border border-border/50 hover:border-primary text-foreground"
+                                )}
+                            >
+                                <div className="flex flex-col items-center">
+                                    <Heart className={cn("w-5 h-5", hasLiked && "fill-current")} />
+                                    <span className="text-[9px] font-bold mt-0.5">{124 + likes}</span>
+                                </div>
+                            </Button>
+
+                            {showConfetti && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0 }}
+                                    className="text-2xl pointer-events-none"
+                                >
+                                    🎉
+                                </motion.div>
+                            )}
+                        </div>
+
+                        <div className="w-px h-12 bg-border/50 my-2" />
+
                         <Button size="icon" variant="outline" className="rounded-full w-10 h-10 border-border/50 hover:bg-twitter/10 hover:text-blue-400 transition-colors">
                             <Twitter className="w-4 h-4" />
                         </Button>

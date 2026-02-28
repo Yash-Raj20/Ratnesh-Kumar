@@ -134,13 +134,13 @@ export function AIAssistant() {
     return (
         <>
             {/* Floating Toggle Button - Hidden on mobile, shown on md+ (tablet/large) */}
-            <div className="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-[70] hidden md:block">
+            <div className="fixed bottom-24 right-4 md:bottom-8 md:right-4 z-[70] hidden md:block">
                 <button
                     onClick={() => setIsOpen(true)}
-                    className="relative group p-3 rounded-full bg-primary text-primary-foreground shadow-[0_0_30px_rgba(var(--primary),0.3)] hover:scale-110 active:scale-95 transition-all duration-300"
+                    className="relative group w-24 h-24  text-primary-foreground shadow-[0_0_30px_rgba(var(--primary),0.3)] hover:scale-120 active:scale-110 transition-all duration-300 flex items-center justify-center p-3"
                 >
-                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20 pointer-events-none" />
-                    <Bot className="w-8 h-8" />
+                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-15 pointer-events-none" />
+                    <img src="/bot/bot1.png" alt="Bot" className="w-full h-full object-contain relative z-10" />
                     <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-xl bg-zinc-900 border border-white/10 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 whitespace-nowrap pointer-events-none shadow-xl">
                         AI Assistant
                     </span>
@@ -156,7 +156,7 @@ export function AIAssistant() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[75]"
+                            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[75]"
                         />
 
                         <motion.div
@@ -173,12 +173,12 @@ export function AIAssistant() {
                             )}
                         >
                             {/* Header */}
-                            <div className="shrink-0 p-6 bg-zinc-950/50 border-b border-white/5 flex items-center justify-between relative overflow-hidden">
+                            <div className="shrink-0 px-6 py-2 bg-zinc-950/50 border-b border-white/5 flex items-center justify-between relative overflow-hidden">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center relative shadow-lg shadow-primary/5">
-                                        <Bot className="w-6 h-6 text-primary" />
-                                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-zinc-950 shadow-lg" />
+                                    <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center relative shadow-lg shadow-primary/5 p-2">
+                                        <img src="/bot/bot1.png" alt="Bot" className="w-full h-full object-contain" />
+                                        {/* <div className="absolute -top-0 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-zinc-950 shadow-lg" /> */}
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-2">
@@ -202,7 +202,10 @@ export function AIAssistant() {
                             <div
                                 ref={scrollRef}
                                 data-lenis-prevent
-                                className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide overscroll-contain"
+                                className="flex-1 overflow-y-auto px-6 py-2 space-y-6 scrollbar-hide overscroll-contain"
+                                style={{
+                                    background: "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 40%), radial-gradient(circle at 80% 30%, rgba(255,255,255,0.05) 0%, transparent 40%), linear-gradient(120deg, #0f0e17 0%, #1a1b26 100%)"
+                                }}
                             >
                                 <AnimatePresence mode="popLayout">
                                     {messages.map((msg, i) => (
@@ -251,7 +254,7 @@ export function AIAssistant() {
                             </div>
 
                             {/* Footer Area with Input and Suggestions */}
-                            <div className="shrink-0 p-6 space-y-4 bg-zinc-950/80 backdrop-blur-xl border-t border-white/5">
+                            <div className="shrink-0 px-6 py-3 space-y-3 bg-zinc-950/80 backdrop-blur-xl border-t border-white/5">
                                 {/* Suggestion Chips */}
                                 <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 mask-linear-fade">
                                     {SUGGESTIONS.map((suggestion, idx) => {
@@ -279,7 +282,7 @@ export function AIAssistant() {
                                         <input
                                             ref={inputRef}
                                             placeholder="Type your question..."
-                                            className="w-full h-14 bg-zinc-900 border border-white/10 rounded-[2rem] pl-12 pr-14 text-sm font-medium text-white placeholder:text-zinc-600 outline-none focus:border-primary/50 transition-all shadow-2xl"
+                                            className="w-full h-12 bg-zinc-900 border border-white/10 rounded-[2rem] pl-12 pr-14 text-sm font-medium text-white placeholder:text-zinc-600 outline-none focus:border-primary/50 transition-all shadow-2xl"
                                             value={input}
                                             onChange={(e) => setInput(e.target.value)}
                                             onKeyDown={(e) => {
@@ -291,7 +294,7 @@ export function AIAssistant() {
                                         <button
                                             onClick={() => handleSend(input)}
                                             disabled={!input.trim() || isTyping}
-                                            className="absolute right-2 w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:scale-105 active:scale-95 disabled:opacity-50 disabled:scale-100 transition-all shadow-lg shadow-primary/20"
+                                            className="absolute right-2 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:scale-105 active:scale-95 disabled:opacity-50 disabled:scale-100 transition-all shadow-lg shadow-primary/20"
                                         >
                                             <Send className="w-4 h-4" />
                                         </button>

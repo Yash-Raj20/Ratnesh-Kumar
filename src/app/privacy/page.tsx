@@ -4,35 +4,35 @@ import { motion } from "framer-motion";
 import { Shield, Lock, FileText, Mail, ArrowRight, CheckCircle2 } from "lucide-react";
 import ElectricNodesBg from "@/components/ui/ElectricNodesBg";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default function PrivacyPage() {
+    const { t } = useTranslation();
     const lastUpdated = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
     const sections = [
         {
             id: "introduction",
-            title: "1. Introduction",
+            title: t('privacyPage.intro.title'),
             icon: FileText,
             content: (
                 <p>
-                    Welcome to my portfolio. I respect your privacy and am committed to protecting your personal data.
-                    This privacy policy will inform you as to how I look after your personal data when you visit my website
-                    (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.
+                    {t('privacyPage.intro.text')}
                 </p>
             )
         },
         {
             id: "data-collection",
-            title: "2. Data I Collect",
+            title: t('privacyPage.data.title'),
             icon: DatabaseIcon,
             content: (
                 <>
-                    <p>I may collect, use, store and transfer different kinds of personal data about you which I have grouped together follows:</p>
+                    <p>{t('privacyPage.data.text')}</p>
                     <ul className="list-none space-y-2 mt-4 ml-1">
                         {[
-                            "Identity Data includes first name, last name, username or similar identifier.",
-                            "Contact Data includes email address and telephone number (if provided via contact form).",
-                            "Technical Data includes internet protocol (IP) address, your login data, browser type and version."
+                            t('privacyPage.data.list.0'),
+                            t('privacyPage.data.list.1'),
+                            t('privacyPage.data.list.2')
                         ].map((item, i) => (
                             <li key={i} className="flex gap-3 text-muted-foreground">
                                 <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
@@ -45,25 +45,25 @@ export default function PrivacyPage() {
         },
         {
             id: "usage",
-            title: "3. How I Use Your Data",
+            title: t('privacyPage.usage.title'),
             icon: Lock,
             content: (
                 <>
-                    <p>I will only use your personal data when the law allows me to. Most commonly, I will use your personal data in the following circumstances:</p>
+                    <p>{t('privacyPage.usage.text')}</p>
                     <ul className="list-disc pl-5 mt-4 space-y-2 text-muted-foreground marker:text-primary">
-                        <li>Where I need to respond to your inquiries sent via the contact form.</li>
-                        <li>Where it is necessary for my legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+                        <li>{t('privacyPage.usage.list.0')}</li>
+                        <li>{t('privacyPage.usage.list.1')}</li>
                     </ul>
                 </>
             )
         },
         {
             id: "contact",
-            title: "4. Contact Me",
+            title: t('privacyPage.contact.title'),
             icon: Mail,
             content: (
                 <p>
-                    If you have any questions about this privacy policy or my privacy practices, please contact me at: <a href="mailto:hello@ratnesh.dev" className="text-primary hover:underline">hello@ratnesh.dev</a>
+                    {t('privacyPage.contact.text')} <a href="mailto:hello@ratnesh.dev" className="text-primary hover:underline">hello@ratnesh.dev</a>
                 </p>
             )
         }
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
     };
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 md:px-20 relative overflow-hidden bg-background">
+        <div className="min-h-screen pt-40 md:pt-60 pb-20 px-6 md:px-20 relative overflow-hidden bg-background">
             <ElectricNodesBg />
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
@@ -94,11 +94,11 @@ export default function PrivacyPage() {
                     transition={{ duration: 0.6 }}
                 >
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6 border border-primary/20">
-                        <Shield className="w-3 h-3" /> Last Updated: {lastUpdated}
+                        <Shield className="w-3 h-3" /> {t('privacyPage.lastUpdated')}: {lastUpdated}
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">Privacy Policy</h1>
+                    <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">{t('privacyPage.title')}</h1>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Transparency is key. Here's how I handle your data with care and respect.
+                        {t('privacyPage.description')}
                     </p>
                 </motion.div>
             </div>

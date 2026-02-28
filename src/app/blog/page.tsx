@@ -11,10 +11,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import ContactCTA from "@/components/sections/ContactCTA";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function BlogPage() {
+    const { t } = useTranslation();
     const containerRef = useRef<HTMLElement>(null);
     const [hoveredPost, setHoveredPost] = useState<number | null>(null);
 
@@ -66,16 +68,16 @@ export default function BlogPage() {
         <main ref={containerRef} className="min-h-screen bg-background text-foreground selection:bg-primary/20">
 
             {/* Header Section */}
-            <section className="pt-40 pb-20 px-6 md:px-20 max-w-7xl mx-auto text-center relative z-10">
+            <section className="pt-40 md:pt-60 pb-20 px-6 md:px-20 max-w-7xl mx-auto text-center relative z-10">
                 <div className="blog-header-item inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 dark:bg-zinc-800/50 text-xs font-semibold tracking-widest uppercase mb-6 text-primary">
                     <Sparkles className="w-3 h-3" />
-                    <span>Thoughts & Perspectives</span>
+                    <span>{t('blogPage.hero.badge')}</span>
                 </div>
                 <h1 className="blog-header-item text-6xl md:text-8xl font-heading font-bold mb-6 tracking-tight leading-[0.9]">
-                    Insights <span className="text-muted-foreground font-serif italic font-light">&</span> Ideas
+                    {t('blogPage.hero.title').split(' ')[0]} <span className="text-muted-foreground font-serif italic font-light">&</span> {t('blogPage.hero.title').split(' ').slice(2).join(' ')}
                 </h1>
                 <p className="blog-header-item text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                    A curated collection of articles on design, engineering, and the future of digital experiences.
+                    {t('blogPage.hero.subtitle')}
                 </p>
             </section>
 
@@ -85,7 +87,7 @@ export default function BlogPage() {
                     <div className="absolute inset-0">
                         <Image
                             src={featuredPost.image}
-                            alt={featuredPost.title}
+                            alt={t(`blogPage.posts.${featuredPost.id}.title`)}
                             fill
                             className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-50"
                             priority
@@ -97,7 +99,7 @@ export default function BlogPage() {
                         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <div className="flex items-center gap-4 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                                 <span className="px-3 py-1 rounded-full bg-primary text-xs font-bold uppercase tracking-wider text-primary-foreground">
-                                    Featured
+                                    {t('blogPage.featured.label')}
                                 </span>
                                 <span className="text-sm font-medium text-white/80 flex items-center gap-2">
                                     <Calendar className="w-4 h-4" /> {featuredPost.date}
@@ -105,15 +107,15 @@ export default function BlogPage() {
                             </div>
 
                             <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 leading-tight max-w-4xl">
-                                {featuredPost.title}
+                                {t(`blogPage.posts.${featuredPost.id}.title`)}
                             </h2>
 
                             <p className="text-lg text-white/70 max-w-2xl line-clamp-2 md:line-clamp-none mb-6">
-                                {featuredPost.excerpt}
+                                {t(`blogPage.posts.${featuredPost.id}.excerpt`)}
                             </p>
 
                             <div className="flex items-center gap-2 text-white/90 font-medium group/btn">
-                                <span>Read Full Article</span>
+                                <span>{t('blogPage.featured.readMore')}</span>
                                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover/btn:bg-primary transition-colors duration-300">
                                     <ArrowRight className="w-4 h-4" />
                                 </div>
@@ -130,8 +132,8 @@ export default function BlogPage() {
                     {/* Posts Grid */}
                     <div className="lg:col-span-8 space-y-16">
                         <div className="flex items-end justify-between border-b border-border/40 pb-4 mb-8">
-                            <h3 className="text-2xl font-bold font-heading">Latest Articles</h3>
-                            <span className="text-sm text-muted-foreground">{otherPosts.length} Articles</span>
+                            <h3 className="text-2xl font-bold font-heading">{t('blogPage.latest.title')}</h3>
+                            <span className="text-sm text-muted-foreground">{otherPosts.length} {t('blogPage.latest.count')}</span>
                         </div>
 
                         <div className="grid grid-cols-1 gap-12">
@@ -146,27 +148,27 @@ export default function BlogPage() {
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted">
                                         <Image
                                             src={post.image}
-                                            alt={post.title}
+                                            alt={t(`blogPage.posts.${post.id}.title`)}
                                             fill
                                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
                                     </div>
                                     <div className="py-2">
                                         <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-primary mb-3">
-                                            {post.category}
+                                            {t(`blogPage.posts.${post.id}.category`)}
                                             <span className="w-1 h-1 rounded-full bg-border" />
                                             <span className="text-muted-foreground font-normal normal-case flex items-center gap-1">
                                                 <Clock className="w-3 h-3" /> {post.readTime}
                                             </span>
                                         </div>
                                         <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">
-                                            {post.title}
+                                            {t(`blogPage.posts.${post.id}.title`)}
                                         </h3>
                                         <p className="text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
-                                            {post.excerpt}
+                                            {t(`blogPage.posts.${post.id}.excerpt`)}
                                         </p>
                                         <div className="flex items-center gap-2 text-sm font-medium">
-                                            Read More
+                                            {t('common.buttons.readMore')}
                                             <ArrowRight className={`w-4 h-4 transition-transform duration-300 ${hoveredPost === post.id ? 'translate-x-1' : ''}`} />
                                         </div>
                                     </div>
@@ -179,21 +181,21 @@ export default function BlogPage() {
                     <div className="lg:col-span-4 space-y-12">
                         {/* Categories - Could be dynamic later */}
                         <div className="p-8 rounded-[2rem] bg-zinc-50 dark:bg-zinc-900/50 border border-border/50 sticky top-32">
-                            <h4 className="font-bold text-lg mb-6">Topics</h4>
+                            <h4 className="font-bold text-lg mb-6">{t('blogPage.sidebar.topics')}</h4>
                             <div className="flex flex-wrap gap-2">
                                 {["Development", "Design", "Engineering", "UI/UX"].map(tag => (
                                     <Badge key={tag} variant="secondary" className="px-3 py-1.5 hover:bg-primary hover:text-primary-foreground cursor-pointer transition-colors">
-                                        {tag}
+                                        {t(`projectsPage.categories.${tag}`)}
                                     </Badge>
                                 ))}
                             </div>
 
                             <div className="mt-12 pt-12 border-t border-border/50">
-                                <h4 className="font-bold text-lg mb-2">Subscribe</h4>
-                                <p className="text-sm text-muted-foreground mb-4">Get the latest insights delivered to your inbox. No spam, ever.</p>
+                                <h4 className="font-bold text-lg mb-2">{t('blogPage.sidebar.subscribe')}</h4>
+                                <p className="text-sm text-muted-foreground mb-4">{t('blogPage.sidebar.subscribeDesc')}</p>
                                 <div className="space-y-3">
-                                    <Input placeholder="email@example.com" className="bg-background rounded-xl border-border/50" />
-                                    <Button className="w-full rounded-xl">Subscribe</Button>
+                                    <Input placeholder={t('blogPage.sidebar.placeholder')} className="bg-background rounded-xl border-border/50" />
+                                    <Button className="w-full rounded-xl">{t('blogPage.sidebar.button')}</Button>
                                 </div>
                             </div>
                         </div>

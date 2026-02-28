@@ -1,15 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-const timelineData = [
-    { year: "2023 - Present", title: "Senior Frontend Engineer", subtitle: "TechFlow", description: "Leading the frontend team, establishing design systems, and migrating legacy codebases to Next.js." },
-    { year: "2021 - 2023", title: "Frontend Developer", subtitle: "Creative Studios", description: "Built award-winning experiential websites for major brands using WebGL and GSAP." },
-    { year: "2020 - 2021", title: "Junior Developer", subtitle: "StartUp Inc", description: "Collaborated on the launch of a fintech mobile app, focusing on UI implementation." },
-    { year: "2016 - 2020", title: "B.Tech in Computer Science", subtitle: "University of Technology", description: "Specialized in Human-Computer Interaction and Web Technologies." },
-];
+const timelineItemsCount = 4;
 
 export default function Timeline() {
+    const { t } = useTranslation();
     return (
         <section className="py-24 px-6 md:px-20 max-w-5xl mx-auto">
             <motion.h2
@@ -19,11 +16,11 @@ export default function Timeline() {
                 viewport={{ once: true }}
                 className="text-sm font-medium uppercase tracking-widest text-muted-foreground mb-16 text-center"
             >
-                My Journey
+                {t("timeline.title")}
             </motion.h2>
 
             <div className="relative border-l border-border/40 ml-4 md:ml-0 space-y-12 md:space-y-0">
-                {timelineData.map((item, index) => (
+                {[...Array(timelineItemsCount)].map((_, index) => (
                     <div key={index} className="mb-8 md:mb-16 md:grid md:grid-cols-[1fr_auto_1fr] items-center gap-8 relative group">
                         {/* Circle on the line */}
                         <motion.div
@@ -42,15 +39,15 @@ export default function Timeline() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
                             >
-                                <span className="text-sm font-mono text-primary mb-2 block">{item.year}</span>
-                                <h3 className="text-xl font-medium">{item.title}</h3>
-                                <p className="text-muted-foreground font-medium mb-2">{item.subtitle}</p>
-                                <p className="text-muted-foreground/80 text-sm leading-relaxed hidden md:block">{item.description}</p>
+                                <span className="text-sm font-mono text-primary mb-2 block">{t(`timeline.items.${index}.year`)}</span>
+                                <h3 className="text-xl font-medium">{t(`timeline.items.${index}.title`)}</h3>
+                                <p className="text-muted-foreground font-medium mb-2">{t(`timeline.items.${index}.subtitle`)}</p>
+                                <p className="text-muted-foreground/80 text-sm leading-relaxed hidden md:block">{t(`timeline.items.${index}.description`)}</p>
                             </motion.div>
                         </div>
 
-                        {/* Mobile description (always shown below on mobile, hidden on desktop if we want to alternate description placement... but let's concise it) */}
-                        <p className="pl-8 text-muted-foreground/80 text-sm leading-relaxed md:hidden mt-2">{item.description}</p>
+                        {/* Mobile description */}
+                        <p className="pl-8 text-muted-foreground/80 text-sm leading-relaxed md:hidden mt-2">{t(`timeline.items.${index}.description`)}</p>
 
                         {/* Empty column for grid balance */}
                         <div className="hidden md:block"></div>

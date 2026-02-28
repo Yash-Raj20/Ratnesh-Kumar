@@ -6,8 +6,10 @@ import { useTheme } from "next-themes";
 import { Github, RefreshCw, AlertCircle, Sparkles, Flame, Trophy } from "lucide-react";
 import { ActivityCalendar, Activity } from "react-activity-calendar";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function GithubContributions() {
+    const { t } = useTranslation();
     const { theme } = useTheme();
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -102,7 +104,7 @@ export default function GithubContributions() {
     };
 
     return (
-        <section className="py-12 md:py-24 relative overflow-hidden bg-zinc-950/50">
+        <section className="py-16 md:py-32 px-6 md:px-20 relative overflow-hidden bg-zinc-950/50">
             {/* Extended Background Effects */}
             <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
             <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-emerald-500/5 blur-[150px] rounded-full pointer-events-none -z-10" />
@@ -121,13 +123,13 @@ export default function GithubContributions() {
                                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                                     <Github className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                                 </div>
-                                <span className="text-zinc-500 uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold">Activity Pulse</span>
+                                <span className="text-zinc-500 uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold">{t("github.activityPulse")}</span>
                             </div>
                             <h2 className="text-3xl md:text-5xl font-heading font-bold tracking-tight text-white">
-                                GitHub <span className="text-gradient-premium">Ecosystem</span>
+                                {t("github.ecosystem")} <span className="text-gradient-premium">{t("github.ecosystemHighlight")}</span>
                             </h2>
                             <p className="text-zinc-400 text-sm md:text-base max-w-xl">
-                                Detailed visualization of my open-source contributions, streaks, and engagement across the GitHub graph.
+                                {t("github.description")}
                             </p>
                         </motion.div>
 
@@ -141,14 +143,14 @@ export default function GithubContributions() {
                             <div className="px-4 py-3 md:px-5 md:py-3 rounded-2xl bg-zinc-900/50 border border-white/5 backdrop-blur-xl flex items-center gap-3 shadow-xl">
                                 <Flame className="w-4 h-4 md:w-5 md:h-5 text-orange-500" />
                                 <div>
-                                    <p className="text-[9px] md:text-[10px] text-zinc-500 uppercase font-black">Streak</p>
-                                    <p className="text-base md:text-lg font-bold text-white leading-none">{streak} Days</p>
+                                    <p className="text-[9px] md:text-[10px] text-zinc-500 uppercase font-black">{t("github.streak")}</p>
+                                    <p className="text-base md:text-lg font-bold text-white leading-none">{streak} {t("github.days")}</p>
                                 </div>
                             </div>
                             <div className="px-4 py-3 md:px-5 md:py-3 rounded-2xl bg-zinc-900/50 border border-white/5 backdrop-blur-xl flex items-center gap-3 shadow-xl">
                                 <Trophy className="w-4 h-4 md:w-5 md:h-5 text-yellow-500" />
                                 <div>
-                                    <p className="text-[9px] md:text-[10px] text-zinc-500 uppercase font-black">Best</p>
+                                    <p className="text-[9px] md:text-[10px] text-zinc-500 uppercase font-black">{t("github.best")}</p>
                                     <p className="text-base md:text-lg font-bold text-white leading-none">{maxDay}</p>
                                 </div>
                             </div>
@@ -174,12 +176,12 @@ export default function GithubContributions() {
                                             <p className="text-xl md:text-3xl font-bold text-white tracking-tight">
                                                 {totalContributions.toLocaleString()}
                                             </p>
-                                            <p className="text-[9px] md:text-xs text-zinc-500 uppercase tracking-widest font-bold">Contributions in {selectedYear === 'last' ? 'last year' : selectedYear}</p>
+                                            <p className="text-[9px] md:text-xs text-zinc-500 uppercase tracking-widest font-bold">{t("github.contributionsIn")} {selectedYear === 'last' ? t("github.last12Months") : selectedYear}</p>
                                         </div>
                                         <div className="flex items-center gap-2 px-2.5 py-1 md:px-3 md:py-1.5 rounded-full bg-zinc-800/50 border border-white/5 text-[8px] md:text-[10px] text-zinc-400 font-bold uppercase tracking-tighter cursor-help hover:bg-zinc-800 transition-colors shrink-0">
                                             <Sparkles className="w-2.5 h-2.5 md:w-3 md:h-3 text-primary" />
-                                            <span className="hidden sm:inline">Data Sync Live</span>
-                                            <span className="sm:hidden">Live</span>
+                                            <span className="hidden sm:inline">{t("github.syncLive")}</span>
+                                            <span className="sm:hidden">{t("github.syncing")}</span>
                                         </div>
                                     </div>
 
@@ -198,7 +200,7 @@ export default function GithubContributions() {
                                                         <Github className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary animate-pulse" />
                                                     </div>
                                                 </div>
-                                                <p className="mt-4 text-zinc-500 text-[10px] font-bold tracking-[0.3em] uppercase">Syncing</p>
+                                                <p className="mt-4 text-zinc-500 text-[10px] font-bold tracking-[0.3em] uppercase">{t("github.syncing")}</p>
                                             </motion.div>
                                         ) : hasError ? (
                                             <motion.div
@@ -210,12 +212,12 @@ export default function GithubContributions() {
                                                 <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
                                                     <AlertCircle className="w-6 h-6 md:w-8 md:h-8 text-red-500/50" />
                                                 </div>
-                                                <p className="text-zinc-300 font-bold mb-1 text-sm md:text-base">Graph Unavailable</p>
+                                                <p className="text-zinc-300 font-bold mb-1 text-sm md:text-base">{t("github.unavailable")}</p>
                                                 <button
                                                     onClick={handleRetry}
                                                     className="px-6 py-2 md:px-8 md:py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white text-xs md:text-sm font-bold border border-white/10 transition-all active:scale-95"
                                                 >
-                                                    Retry
+                                                    {t("github.retry")}
                                                 </button>
                                             </motion.div>
                                         ) : (
@@ -245,16 +247,16 @@ export default function GithubContributions() {
 
                                                     <div className="mt-6 md:mt-8 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] md:text-[10px] uppercase font-black tracking-widest text-zinc-600">
                                                         <div className="px-3 py-1 rounded-md bg-zinc-900 border border-white/5">
-                                                            * Real-time Fetch Active
+                                                            * {t("github.syncActive")}
                                                         </div>
                                                         <div className="flex items-center gap-3 bg-zinc-900 px-4 py-1.5 rounded-full border border-white/5">
-                                                            <span>Less</span>
+                                                            <span>{t("github.less")}</span>
                                                             <div className="flex gap-1.5">
                                                                 {['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'].map(c => (
                                                                     <div key={c} className="w-[8px] h-[8px] md:w-[10px] md:h-[10px] rounded-[2px] shadow-sm" style={{ backgroundColor: c }} />
                                                                 ))}
                                                             </div>
-                                                            <span>More</span>
+                                                            <span>{t("github.more")}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -280,7 +282,7 @@ export default function GithubContributions() {
                                     }`}
                             >
                                 <div className="flex items-center justify-between gap-3 pointer-events-none">
-                                    <span>Last 12 Months</span>
+                                    <span>{t("github.last12Months")}</span>
                                     <div className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full ${selectedYear === 'last' ? 'bg-white animate-pulse' : 'bg-zinc-700 opacity-0 group-hover:opacity-100'}`} />
                                 </div>
                             </button>
@@ -295,7 +297,7 @@ export default function GithubContributions() {
                                         }`}
                                 >
                                     <div className="flex items-center justify-between gap-3 pointer-events-none">
-                                        <span>{year} Activity</span>
+                                        <span>{year} {t("github.yearActivity")}</span>
                                         <div className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full ${selectedYear === year ? 'bg-white animate-pulse' : 'bg-zinc-700 opacity-0 group-hover:opacity-100'}`} />
                                     </div>
                                 </button>

@@ -4,59 +4,60 @@ import { motion } from "framer-motion";
 import { Scale, Gavel, UserCheck, AlertTriangle, FileText, ArrowRight } from "lucide-react";
 import ElectricNodesBg from "@/components/ui/ElectricNodesBg";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default function TermsPage() {
+    const { t } = useTranslation();
     const lastUpdated = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
     const sections = [
         {
             id: "agreement",
-            title: "1. Agreement to Terms",
+            title: t('termsPage.agreement.title'),
             icon: Scale,
             content: (
                 <p>
-                    By accessing this website, you agree to be bound by these Terms of Service and all applicable laws and regulations.
-                    If you do not agree with any of these terms, you are prohibited from using or accessing this site.
+                    {t('termsPage.agreement.text')}
                 </p>
             )
         },
         {
             id: "ip",
-            title: "2. Intellectual Property",
+            title: t('termsPage.ip.title'),
             icon: FileText,
             content: (
                 <p>
-                    Unless otherwise indicated, the Site is my proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by me or licensed to me, and are protected by copyright and trademark laws.
+                    {t('termsPage.ip.text')}
                 </p>
             )
         },
         {
             id: "user-reps",
-            title: "3. User Representations",
+            title: t('termsPage.reps.title'),
             icon: UserCheck,
             content: (
                 <p>
-                    By using the Site, you represent and warrant that: (1) you have the legal capacity and you agree to comply with these Terms of Service; (2) you are not a minor in the jurisdiction in which you reside; (3) you will not access the Site through automated or non-human means, whether through a bot, script or otherwise; (4) you will not use the Site for any illegal or unauthorized purpose; and (5) your use of the Site will not violate any applicable law or regulation.
+                    {t('termsPage.reps.text')}
                 </p>
             )
         },
         {
             id: "limitations",
-            title: "4. Limitations",
+            title: t('termsPage.limit.title'),
             icon: AlertTriangle,
             content: (
                 <p>
-                    In no event shall Ratnesh or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Ratnesh's website.
+                    {t('termsPage.limit.text')}
                 </p>
             )
         },
         {
             id: "governing-law",
-            title: "5. Governing Law",
+            title: t('termsPage.law.title'),
             icon: Gavel,
             content: (
                 <p>
-                    These terms and conditions are governed by and construed in accordance with the laws of India and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.
+                    {t('termsPage.law.text')}
                 </p>
             )
         }
@@ -75,7 +76,7 @@ export default function TermsPage() {
     };
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 md:px-20 relative overflow-hidden bg-background">
+        <div className="min-h-screen pt-40 md:pt-60 pb-20 px-6 md:px-20 relative overflow-hidden bg-background">
             <ElectricNodesBg />
             <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
@@ -87,11 +88,11 @@ export default function TermsPage() {
                     transition={{ duration: 0.6 }}
                 >
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-500 text-xs font-bold uppercase tracking-wider mb-6 border border-indigo-500/20">
-                        <Scale className="w-3 h-3" /> Last Updated: {lastUpdated}
+                        <Scale className="w-3 h-3" /> {t('termsPage.lastUpdated')}: {lastUpdated}
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">Terms of Service</h1>
+                    <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">{t('termsPage.title')}</h1>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Please read these terms carefully before using my portfolio website.
+                        {t('termsPage.description')}
                     </p>
                 </motion.div>
             </div>

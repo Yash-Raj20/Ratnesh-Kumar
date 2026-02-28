@@ -5,9 +5,11 @@ import { Github, Linkedin, Twitter, Instagram, ArrowRight, Mail } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { StatusWidget } from "@/components/ui/StatusWidget";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const { t } = useTranslation();
 
     const socialLinks = [
         { name: "GitHub", icon: Github, href: "https://github.com" },
@@ -18,22 +20,23 @@ export default function Footer() {
 
     const footerLinks = [
         {
-            title: "Navigation",
+            title: t("common.nav.nav"),
             links: [
-                { name: "Home", href: "/" },
-                { name: "About", href: "/about" },
-                { name: "Projects", href: "/projects" },
-                { name: "Blog", href: "/blog" },
-                { name: "Contact", href: "/contact" },
+                { name: t("common.nav.home"), href: "/" },
+                { name: t("common.nav.about"), href: "/about" },
+                { name: t("common.nav.projects"), href: "/projects" },
+                { name: t("common.nav.blog"), href: "/blog" },
+                { name: t("common.nav.contact"), href: "/contact" },
             ]
         },
+
         {
-            title: "Services",
+            title: t("services.title"),
             links: [
-                { name: "Web Development", href: "/services#web" },
-                { name: "UI/UX Design", href: "/services#design" },
-                { name: "Mobile Apps", href: "/services#mobile" },
-                { name: "Consulting", href: "/services#consulting" },
+                { name: t("services.items.web-design.title"), href: "/services/web-design" },
+                { name: t("services.items.development.title"), href: "/services/development" },
+                { name: t("services.items.motion.title"), href: "/services/motion" },
+                { name: t("services.items.strategy.title"), href: "/services/strategy" },
             ]
         },
     ];
@@ -77,7 +80,7 @@ export default function Footer() {
                             Ratnesh.
                         </Link>
                         <p className="text-zinc-400 leading-relaxed max-w-sm">
-                            Crafting digital experiences that merge art with technology. Specialized in building scalable, performant, and beautiful web applications.
+                            {t("common.footer.brandDesc")}
                         </p>
                         <div className="flex gap-4">
                             {socialLinks.map((social) => (
@@ -117,9 +120,9 @@ export default function Footer() {
 
                     {/* Newsletter Column */}
                     <div className="lg:col-span-4 space-y-6">
-                        <h4 className="text-lg font-medium text-white">Stay Updated</h4>
+                        <h4 className="text-lg font-medium text-white">{t("common.footer.stayUpdated")}</h4>
                         <p className="text-zinc-400 text-sm">
-                            Subscribe to my newsletter for the latest updates on tech, design, and development.
+                            {t("common.footer.subscribeText")}
                         </p>
                         <div className="space-y-3">
                             <div className="flex gap-2">
@@ -127,7 +130,7 @@ export default function Footer() {
                                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
                                     <Input
                                         type="email"
-                                        placeholder="Enter your email"
+                                        placeholder={t("common.footer.emailPlaceholder")}
                                         className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-primary/50 focus-visible:border-primary"
                                     />
                                 </div>
@@ -146,14 +149,14 @@ export default function Footer() {
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="flex items-center gap-4">
                         <p className="text-sm text-zinc-500">
-                            © {currentYear} Ratnesh. All rights reserved.
+                            © {currentYear} Ratnesh. {t("common.footer.allRights")}
                         </p>
 
                     </div>
                     <div className="flex gap-6 text-sm text-zinc-500">
-                        <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-                        <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
+                        <Link href="/privacy" className="hover:text-white transition-colors">{t("common.footer.privacy")}</Link>
+                        <Link href="/terms" className="hover:text-white transition-colors">{t("common.footer.terms")}</Link>
+                        <Link href="/sitemap" className="hover:text-white transition-colors">{t("common.footer.sitemap")}</Link>
                     </div>
                 </div>
             </div>

@@ -63,28 +63,28 @@ export const portfolioData = {
             id: 1,
             title: "Janseva Portal",
             category: "Civic Platform",
-            image: "project1",
+            image: "/projects/janseva.png",
             description: "Civic issue reporting platform for Viksit Bharat initiative using React, Node, and Socket.io."
         },
         {
             id: 2,
             title: "Heavenstay",
             category: "Booking Platform",
-            image: "project2",
+            image: "/projects/heavenstay.png",
             description: "Full-stack Airbnb-inspired villa booking app with CRUD, auth, and responsive UI."
         },
         {
             id: 3,
             title: "Portfolio Website",
             category: "Web Design",
-            image: "project3",
+            image: "/projects/portfolio.png",
             description: "Modern, high-performance portfolio website built with Next.js, Framer Motion, and GSAP."
         },
         {
             id: 4,
             title: "FitIndia",
             category: "Health & Fitness",
-            image: "project4",
+            image: "/projects/fitindia.png",
             description: "FitIndia app is a health and fitness app that helps users track their fitness goals and progress."
         }
     ]

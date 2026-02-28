@@ -2,15 +2,17 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-const stats = [
-    { label: "Years Experience", value: "8+" },
-    { label: "Projects Completed", value: "50+" },
-    { label: "Happy Clients", value: "30+" },
-    { label: "Awards Won", value: "12" },
+const statsKeys = [
+    { label: "bio.stats.exp", value: "8+" },
+    { label: "bio.stats.projects", value: "50+" },
+    { label: "bio.stats.clients", value: "30+" },
+    { label: "bio.stats.awards", value: "12" },
 ];
 
 export default function Bio() {
+    const { t } = useTranslation();
     return (
         <section className="min-h-screen pt-32 pb-20 px-6 md:px-20 max-w-7xl mx-auto flex flex-col justify-center">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -20,10 +22,10 @@ export default function Bio() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-primary mb-4">The Person Behind The Code</h2>
+                        <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-primary mb-4">{t("bio.title")}</h2>
                         <h1 className="text-5xl md:text-7xl font-heading font-bold leading-[1.1] tracking-tight">
-                            Design driven. <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Engineering focused.</span>
+                            {t("bio.heading1")} <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">{t("bio.heading2")}</span>
                         </h1>
                     </motion.div>
 
@@ -34,10 +36,10 @@ export default function Bio() {
                         className="space-y-6 text-xl text-muted-foreground leading-relaxed"
                     >
                         <p>
-                            Hi, I'm Ratnesh. I sit at the intersection of design and engineering. My philosophy is simple: technology should be invisible, and experiences should be unforgettable.
+                            {t("bio.para1")}
                         </p>
                         <p>
-                            With over 8 years of experience shipping production-grade software, I've learned that the secret to great products isn't just clean code or pretty pixels—it's how they work together to solve real human problems.
+                            {t("bio.para2")}
                         </p>
                     </motion.div>
 
@@ -48,10 +50,10 @@ export default function Bio() {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-6 border-t border-border/40"
                     >
-                        {stats.map((stat, index) => (
+                        {statsKeys.map((stat, index) => (
                             <div key={index} className="space-y-1">
                                 <h3 className="text-3xl font-bold font-heading text-foreground">{stat.value}</h3>
-                                <p className="text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</p>
+                                <p className="text-sm text-muted-foreground uppercase tracking-wider">{t(stat.label)}</p>
                             </div>
                         ))}
                     </motion.div>

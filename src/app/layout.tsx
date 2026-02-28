@@ -8,6 +8,7 @@ import CustomCursor from "@/components/ui/CustomCursor";
 import SocialDock from "@/components/layout/SocialDock";
 import { SpotlightBg } from "@/components/ui/SpotlightBg";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { I18nProvider } from "@/components/providers/I18nProvider";
 import { cn } from "@/lib/utils";
 
 const outfit = Outfit({
@@ -45,16 +46,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScroll>
-            <CustomCursor />
-            <SpotlightBg />
-            <SocialDock />
-            <Header />
-            <main className="min-h-screen pt-20">
-              {children}
-            </main>
-            <Footer />
-          </SmoothScroll>
+          <I18nProvider>
+            <SmoothScroll>
+              <CustomCursor />
+              <SpotlightBg />
+              <SocialDock />
+              <Header />
+              <main className="min-h-screen">
+                {children}
+              </main>
+              <Footer />
+            </SmoothScroll>
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>

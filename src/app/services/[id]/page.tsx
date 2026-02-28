@@ -92,7 +92,7 @@ export default function ServiceDetail() {
     return (
         <div ref={containerRef} className="min-h-screen bg-background selection:bg-primary/20">
             {/* Hero Section */}
-            <div className="relative h-[85vh] min-h-[600px] w-full overflow-hidden">
+            <div className="relative h-[70vh] md:h-[90vh] min-h-[600px] md:min-h-[700px] w-full overflow-hidden">
                 <div ref={heroImageRef} className="absolute inset-0 h-[120%] w-full">
                     <Image
                         src={service.image || "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"}

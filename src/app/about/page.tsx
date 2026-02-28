@@ -11,6 +11,8 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ElectricNodesBg from "@/components/ui/ElectricNodesBg";
+import { useTranslation } from "react-i18next";
+import { portfolioData } from "@/data/portfolioData";
 
 // --- COMPONENTS ---
 
@@ -48,6 +50,7 @@ const MagneticButton = ({ children, className }: { children: React.ReactNode, cl
 
 export default function AboutPage() {
     const containerRef = useRef(null);
+    const { t } = useTranslation();
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
@@ -55,38 +58,38 @@ export default function AboutPage() {
 
     // --- DATA ---
     const stats = [
-        { label: "Years Experience", value: "8+" },
-        { label: "Projects Shipped", value: "50+" },
-        { label: "Happy Clients", value: "30+" },
-        { label: "Coffee Consumed", value: "∞" },
+        { label: t("aboutPage.stats.exp"), value: "8+" },
+        { label: t("aboutPage.stats.projects"), value: "50+" },
+        { label: t("aboutPage.stats.clients"), value: "30+" },
+        { label: t("aboutPage.stats.coffee"), value: "∞" },
     ];
 
     const timeline = [
-        { year: "2023 - Present", title: "Senior Frontend Engineer", subtitle: "TechFlow", desc: "Leading frontend architecture, establishing design systems, and mentoring junior devs.", icon: Briefcase },
-        { year: "2021 - 2023", title: "Frontend Developer", subtitle: "Creative Studios", desc: "Built award-winning experiential websites using WebGL and GSAP for major brands.", icon: Code },
-        { year: "2020 - 2021", title: "Junior Developer", subtitle: "StartUp Inc", desc: "Collaborated on the launch of a fintech mobile app, focusing on UI implementation.", icon: Smartphone },
-        { year: "2016 - 2020", title: "B.Tech in CS", subtitle: "University of Technology", desc: "Specialized in Human-Computer Interaction and Web Technologies.", icon: GraduationCap },
+        { year: t("timeline.items.0.year"), title: t("timeline.items.0.title"), subtitle: t("timeline.items.0.subtitle"), desc: t("timeline.items.0.description"), icon: Briefcase },
+        { year: t("timeline.items.1.year"), title: t("timeline.items.1.title"), subtitle: t("timeline.items.1.subtitle"), desc: t("timeline.items.1.description"), icon: Code },
+        { year: t("timeline.items.2.year"), title: t("timeline.items.2.title"), subtitle: t("timeline.items.2.subtitle"), desc: t("timeline.items.2.description"), icon: Smartphone },
+        { year: t("timeline.items.3.year"), title: t("timeline.items.3.title"), subtitle: t("timeline.items.3.subtitle"), desc: t("timeline.items.3.description"), icon: GraduationCap },
     ];
 
     const philosophies = [
-        { icon: Zap, title: "Performance First", desc: "Speed is a feature. I optimize for 60fps experiences." },
-        { icon: Eye, title: "Pixel Perfection", desc: "I obsess over spacing, typography, and micro-interactions." },
-        { icon: Heart, title: "User-Centric", desc: "Empathy drives my design. Accessible to everyone." },
-        { icon: Layers, title: "Scalable Code", desc: "Modular architecture that grows without technical debt." }
+        { icon: Zap, title: t("philosophy.items.0.title"), desc: t("philosophy.items.0.description") },
+        { icon: Eye, title: t("philosophy.items.1.title"), desc: t("philosophy.items.1.description") },
+        { icon: Heart, title: t("philosophy.items.2.title"), desc: t("philosophy.items.2.description") },
+        { icon: Layers, title: t("philosophy.items.3.title"), desc: t("philosophy.items.3.description") }
     ];
 
     const skills = [
-        { category: "Frontend", icon: Layout, items: ["React", "Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Three.js"] },
-        { category: "Backend", icon: Server, items: ["Node.js", "PostgreSQL", "GraphQL", "Redis", "Serverless"] },
-        { category: "Design", icon: Layers, items: ["Figma", "UI/UX", "Prototyping", "Design Systems"] },
-        { category: "Tools", icon: Terminal, items: ["Git", "Docker", "AWS", "CI/CD", "Vercel"] }
+        { category: t("techProficiency.categories.0.title"), icon: Layout, items: ["React", "Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Three.js"] },
+        { category: t("techProficiency.categories.1.title"), icon: Server, items: ["Node.js", "PostgreSQL", "GraphQL", "Redis", "Serverless"] },
+        { category: t("techProficiency.categories.3.title"), icon: Layers, items: ["Figma", "UI/UX", "Prototyping", "Design Systems"] },
+        { category: t("techProficiency.categories.4.title"), icon: Terminal, items: ["Git", "Docker", "AWS", "CI/CD", "Vercel"] }
     ];
 
     const hobbies = [
-        { icon: Gamepad2, label: "Gaming", desc: "RPG & Strategy enthusiast" },
-        { icon: Coffee, label: "Specialty Coffee", desc: "V60 & AeroPress brewer" },
-        { icon: Plane, label: "Traveling", desc: "Exploring new cultures" },
-        { icon: Music, label: "Music", desc: "Lo-fi beats while coding" }
+        { icon: Gamepad2, label: t("aboutPage.personal.hobbies.gaming.label"), desc: t("aboutPage.personal.hobbies.gaming.desc") },
+        { icon: Coffee, label: t("aboutPage.personal.hobbies.coffee.label"), desc: t("aboutPage.personal.hobbies.coffee.desc") },
+        { icon: Plane, label: t("aboutPage.personal.hobbies.traveling.label"), desc: t("aboutPage.personal.hobbies.traveling.desc") },
+        { icon: Music, label: t("aboutPage.personal.hobbies.music.label"), desc: t("aboutPage.personal.hobbies.music.desc") }
     ];
 
     const gear = [
@@ -95,7 +98,7 @@ export default function AboutPage() {
         { icon: Keyboard, name: 'Keychron Q1', desc: 'Gateron G Pro Brown' },
         { icon: Mouse, name: 'MX Master 3S', desc: 'Productivity beast' },
         { icon: Code, name: 'VS Code', desc: 'Theme: Tokyo Night' },
-        { icon: PenTool, name: 'Figma', desc: 'Where design happens' },
+        { icon: PenTool, name: 'Figma', desc: t("aboutPage.gear.figmaDesc") },
     ];
 
     const books = [
@@ -110,7 +113,7 @@ export default function AboutPage() {
             <ElectricNodesBg />
 
             {/* --- HERO SECTION --- */}
-            <section className="min-h-screen pt-32 pb-20 px-6 md:px-20 max-w-7xl mx-auto flex flex-col justify-center relative z-10">
+            <section className="min-h-screen pt-40 md:pt-60 pb-20 px-6 md:px-20 max-w-7xl mx-auto flex flex-col justify-center relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -119,14 +122,14 @@ export default function AboutPage() {
                     >
                         <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-6 flex items-center gap-2">
                             <span className="w-12 h-[2px] bg-primary"></span>
-                            About Me
+                            {t("aboutPage.hero.badge")}
                         </h2>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[0.9] text-balance mb-8">
-                            More than <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-indigo-500 animate-gradient-x">just code.</span>
+                            {t("aboutPage.hero.heading1")} <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-indigo-500 animate-gradient-x">{t("aboutPage.hero.heading2")}</span>
                         </h1>
                         <p className="text-xl text-muted-foreground leading-relaxed max-w-lg mb-12">
-                            I'm Ratnesh, a developer who believes that the best code is invisible, and the best experiences are unforgettable. I sit at the intersection of design and engineering.
+                            {t("aboutPage.hero.description")}
                         </p>
 
                         <div className="flex flex-wrap gap-8 border-t border-border/50 pt-8">
@@ -155,8 +158,8 @@ export default function AboutPage() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                             <div className="absolute bottom-6 left-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                                <p className="font-heading font-bold text-2xl">Ratnesh</p>
-                                <p className="text-sm opacity-80">Full Stack Engineer</p>
+                                <p className="font-heading font-bold text-2xl">{portfolioData.about.name}</p>
+                                <p className="text-sm opacity-80">{t("aboutPage.hero.role")}</p>
                             </div>
                         </div>
                         {/* Decorative Elements */}
@@ -174,8 +177,8 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Core Values</h2>
-                    <h3 className="text-3xl md:text-5xl font-heading font-bold">Engineering Philosophy</h3>
+                    <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">{t("aboutPage.philosophy.badge")}</h2>
+                    <h3 className="text-3xl md:text-5xl font-heading font-bold">{t("aboutPage.philosophy.title")}</h3>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -207,8 +210,8 @@ export default function AboutPage() {
                         viewport={{ once: true }}
                         className="mb-16 text-center"
                     >
-                        <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">My Path</h2>
-                        <h3 className="text-3xl md:text-5xl font-heading font-bold">The Journey So Far</h3>
+                        <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">{t("aboutPage.journey.badge")}</h2>
+                        <h3 className="text-3xl md:text-5xl font-heading font-bold">{t("aboutPage.journey.title")}</h3>
                     </motion.div>
 
                     <div className="relative border-l-2 border-border/50 ml-6 space-y-12">
@@ -251,8 +254,8 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Toolkit</h2>
-                    <h3 className="text-3xl md:text-5xl font-heading font-bold">Technical Arsenal</h3>
+                    <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">{t("aboutPage.toolkit.badge")}</h2>
+                    <h3 className="text-3xl md:text-5xl font-heading font-bold">{t("aboutPage.toolkit.title")}</h3>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -342,7 +345,7 @@ export default function AboutPage() {
                             </div>
                             <div className="mt-8 p-4 bg-white/5 rounded-2xl border border-white/10 text-center">
                                 <p className="text-sm text-white/70 italic">
-                                    "The more that you read, the more things you will know. The more that you learn, the more places you'll go."
+                                    {t("aboutPage.learning.quote")}
                                 </p>
                             </div>
                         </div>
@@ -353,8 +356,8 @@ export default function AboutPage() {
             {/* --- BEYOND THE SCREEN --- */}
             <section className="py-24 px-6 md:px-20">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">Personal</h2>
-                    <h2 className="text-3xl font-heading font-bold mb-12">Beyond the Screen</h2>
+                    <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4">{t("aboutPage.personal.badge")}</h2>
+                    <h2 className="text-3xl font-heading font-bold mb-12">{t("aboutPage.personal.title")}</h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {hobbies.map((hobby, i) => (
                             <motion.div
@@ -381,11 +384,11 @@ export default function AboutPage() {
             {/* --- CTA & SIGNATURE --- */}
             <section className="py-32 px-6 text-center relative">
                 <div className="mb-12">
-                    <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8">Ready to start a project?</h2>
+                    <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8">{t("aboutPage.cta.title")}</h2>
                     <MagneticButton>
                         <Link href="/contact">
                             <Button size="lg" className="h-14 px-8 rounded-full text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-transform bg-primary text-primary-foreground hover:bg-primary/90">
-                                Let's Talk <Globe className="ml-2 w-5 h-5" />
+                                {t("aboutPage.cta.button")} <Globe className="ml-2 w-5 h-5" />
                             </Button>
                         </Link>
                     </MagneticButton>

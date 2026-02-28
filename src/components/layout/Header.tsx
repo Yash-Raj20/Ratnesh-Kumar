@@ -5,36 +5,39 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { StatusWidget } from "@/components/ui/StatusWidget";
 import { AIAssistant } from "@/components/ui/AIAssistant";
 import { Menu, X, ArrowRight, Home, User, Layers, BookOpen, MessageSquare, Briefcase, Bot } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
     const { scrollY } = useScroll();
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
+    const { t } = useTranslation();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         setScrolled(latest > 50);
     });
 
     const navLinks = [
-        { name: "About", href: "/about", icon: User },
-        { name: "Projects", href: "/projects", icon: Briefcase },
-        { name: "Services", href: "/services", icon: Layers },
-        { name: "Blog", href: "/blog", icon: BookOpen },
-        { name: "Contact", href: "/contact", icon: MessageSquare },
+        { name: t("common.nav.about"), href: "/about", icon: User },
+        { name: t("common.nav.projects"), href: "/projects", icon: Briefcase },
+        { name: t("common.nav.services"), href: "/services", icon: Layers },
+        { name: t("common.nav.blog"), href: "/blog", icon: BookOpen },
+        { name: t("common.nav.contact"), href: "/contact", icon: MessageSquare },
     ];
 
     const mobileTabs = [
-        { name: "Home", href: "/", icon: Home },
-        { name: "Projects", href: "/projects", icon: Briefcase },
-        { name: "Blog", href: "/blog", icon: BookOpen },
-        { name: "About", href: "/about", icon: User },
-        { name: "Contact", href: "/contact", icon: MessageSquare },
+        { name: t("common.nav.home"), href: "/", icon: Home },
+        { name: t("common.nav.projects"), href: "/projects", icon: Briefcase },
+        { name: t("common.nav.blog"), href: "/blog", icon: BookOpen },
+        { name: t("common.nav.about"), href: "/about", icon: User },
+        { name: t("common.nav.contact"), href: "/contact", icon: MessageSquare },
     ];
 
     return (
@@ -82,6 +85,7 @@ export default function Header() {
                     </nav>
 
                     <div className="flex items-center gap-2 pl-2 border-l border-white/10">
+                        <LanguageSwitcher />
                         <CommandPalette />
                         <ThemeSwitcher />
                         <MagneticButton>
@@ -89,7 +93,7 @@ export default function Header() {
                                 href="/contact"
                                 className="group relative inline-flex h-10 items-center justify-center overflow-hidden rounded-full bg-primary px-6 font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:pr-8"
                             >
-                                <span className="mr-0 transition-all duration-300 group-hover:mr-2">Hire Me</span>
+                                <span className="mr-0 transition-all duration-300 group-hover:mr-2">{t("common.buttons.hireMe")}</span>
                                 <ArrowRight className="absolute right-2 h-4 w-4 translate-x-10 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
                             </Link>
                         </MagneticButton>
@@ -148,13 +152,14 @@ export default function Header() {
                 </Link>
                 <div className="pointer-events-auto flex items-center gap-2">
                     <CommandPalette isMobileTrigger />
-                    <ThemeSwitcher />
                     <button
                         onClick={() => window.dispatchEvent(new CustomEvent('toggle-ai-assistant'))}
-                        className="w-10 h-10 rounded-full bg-zinc-900/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-zinc-400 hover:text-primary transition-all active:scale-90"
+                        className="w-10 h-10 rounded-full bg-zinc-900/50 backdrop-blur-md border border-white/10 flex items-center justify-center text-zinc-400 hover:text-primary transition-all active:scale-90 overflow-hidden p-2"
                     >
-                        <Bot className="w-5 h-5" />
+                        <img src="/bot/bot1.png" alt="AI Agent" className="w-full h-full object-contain" />
                     </button>
+                    <LanguageSwitcher />
+                    <ThemeSwitcher />
                 </div>
             </header>
 

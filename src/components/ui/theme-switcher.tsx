@@ -121,7 +121,7 @@ export function ThemeSwitcher() {
             <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full w-10 h-10 bg-zinc-800/50 hover:bg-zinc-800 border border-white/5 text-zinc-400 hover:text-white transition-all shadow-inner group"
+                className="rounded-full w-10 h-10 bg-zinc-800/50 hover:bg-zinc-800 border border-white/10 text-zinc-400 hover:text-white transition-all shadow-inner group"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 group-hover:scale-110" />

@@ -73,7 +73,7 @@ export default function ResumePage() {
     };
 
     return (
-        <section className="min-h-screen pt-32 pb-20 px-6 md:px-20 bg-zinc-50/50 dark:bg-background text-foreground relative print:pt-0 print:pb-0 print:bg-white print:text-black">
+        <section className="min-h-screen pt-40 md:pt-60 pb-20 px-6 md:px-20 bg-zinc-50/50 dark:bg-background text-foreground relative print:pt-0 print:pb-0 print:bg-white print:text-black">
             <div className="print:hidden">
                 <ElectricNodesBg />
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10" />

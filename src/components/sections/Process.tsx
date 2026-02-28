@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Search, PenTool, LayoutTemplate, Zap, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,6 +38,7 @@ const processSteps = [
 export default function Process() {
     const sectionRef = useRef<HTMLElement>(null);
     const triggerRef = useRef<HTMLDivElement>(null);
+    const { t } = useTranslation();
 
     // usage of useLayoutEffect (or useEffect with extra care) is recommended for GSAP in React
     // to ensure elements are in the DOM before animation setup.
@@ -70,7 +72,7 @@ export default function Process() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-24 md:py-32 bg-background relative overflow-hidden">
+        <section ref={sectionRef} className="py-16 md:py-32 bg-background relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[20%] left-[5%] w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-50" />
@@ -79,9 +81,9 @@ export default function Process() {
 
             <div className="max-w-7xl mx-auto px-6" ref={triggerRef}>
                 <div className="text-center mb-20">
-                    <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-primary mb-4">How I Work</h2>
+                    <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-primary mb-4">{t("process.title")}</h2>
                     <h3 className="text-4xl md:text-5xl font-heading font-bold">
-                        From <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Concept to Reality.</span>
+                        {t("process.heading1")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">{t("process.heading2")}</span>
                     </h3>
                 </div>
 
@@ -109,12 +111,13 @@ export default function Process() {
                                 </div>
 
                                 <h4 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
-                                    {step.title}
+                                    {t(`process.steps.${step.id}.title`)}
                                 </h4>
 
                                 <p className="text-muted-foreground leading-relaxed text-sm group-hover:text-foreground/80 transition-colors duration-300">
-                                    {step.description}
+                                    {t(`process.steps.${step.id}.description`)}
                                 </p>
+
                             </div>
 
                             {/* Bottom Active Line */}

@@ -10,8 +10,10 @@ import ContactCTA from "@/components/sections/ContactCTA";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 export default function ProjectsPage() {
+    const { t } = useTranslation();
     const [filter, setFilter] = useState("All");
     const containerRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLDivElement>(null);
@@ -48,14 +50,14 @@ export default function ProjectsPage() {
     }, []);
 
     // Split text for hero animation
-    const heroTitle = "Selected Works";
+    const heroTitle = t("projectsPage.hero.title");
     const heroChars = heroTitle.split("");
 
     return (
         <div ref={containerRef} className="min-h-screen bg-background selection:bg-primary/20 flex flex-col">
 
             {/* Hero Section */}
-            <section ref={heroRef} className="pt-40 pb-20 px-6 md:px-20 max-w-8xl mx-auto w-full relative z-10">
+            <section ref={heroRef} className="pt-40 md:pt-60 pb-20 px-6 md:px-20 max-w-8xl mx-auto w-full relative z-10">
                 <div className="overflow-hidden mb-6">
                     <h1 className="text-6xl md:text-9xl font-heading font-bold tracking-tight flex flex-wrap gap-x-4 md:gap-x-8">
                         {heroTitle.split(" ").map((word, wordIndex) => (
@@ -70,7 +72,7 @@ export default function ProjectsPage() {
                     </h1>
                 </div>
                 <p className="hero-subtitle text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-                    A curated collection of projects that push the boundaries of design and technology.
+                    {t("projectsPage.hero.subtitle")}
                 </p>
             </section>
 
@@ -80,7 +82,7 @@ export default function ProjectsPage() {
                     <div className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-border/50 p-2 pl-3 rounded-full inline-flex items-center gap-2 shadow-sm relative no-scrollbar overflow-x-auto max-w-full">
                         <div className="pr-2 border-r border-border/50 text-muted-foreground hidden sm:flex items-center gap-2">
                             <Filter className="w-4 h-4" />
-                            <span className="text-sm font-medium">Filter</span>
+                            <span className="text-sm font-medium">{t("projectsPage.filter.label")}</span>
                         </div>
                         <div className="flex items-center gap-1">
                             {projectCategories.map((category) => (
@@ -101,7 +103,7 @@ export default function ProjectsPage() {
                                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                         />
                                     )}
-                                    <span className="relative z-10">{category}</span>
+                                    <span className="relative z-10">{t(`projectsPage.categories.${category}`)}</span>
                                 </button>
                             ))}
                         </div>

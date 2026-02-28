@@ -1,0 +1,684 @@
+{
+    "common": {
+        "nav": {
+            "nav": "Navigation",
+            "home": "Home",
+            "about": "About",
+            "services": "Services",
+            "projects": "Projects",
+            "resume": "Resume",
+            "blog": "Blog",
+            "contact": "Contact"
+        },
+        "buttons": {
+            "hireMe": "Hire Me",
+            "getInTouch": "Get In Touch",
+            "viewProjects": "View Projects",
+            "readMore": "Read More",
+            "send": "Send Message"
+        },
+        "footer": {
+            "brandDesc": "Crafting digital experiences that merge art with technology. Specialized in building scalable, performant, and beautiful web applications.",
+            "stayUpdated": "Stay Updated",
+            "subscribeText": "Subscribe to my newsletter for the latest updates on tech, design, and development.",
+            "emailPlaceholder": "Enter your email",
+            "allRights": "All rights reserved.",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "sitemap": "Sitemap",
+            "github": "GitHub"
+        },
+        "labels": {
+            "included": "What's Included"
+        }
+    },
+    "hero": {
+        "greeting": "Hi, I'm",
+        "title": "Frontend Developer",
+        "headingLine1": "Building dynamic",
+        "headingLine2": "web applications.",
+        "description": "Enthusiastic and dedicated Frontend Developer focused on creating seamless, interactive user experiences with attention to performance and UI/UX optimization."
+    },
+    "about": {
+        "title": "About Me",
+        "heading1": "Passionate about",
+        "heading2": "seamless UX.",
+        "description": "I am a Frontend Developer with hands-on experience in React.js, JavaScript, and modern frontend tools. I specialize in responsive design, state management, and API integration, always aiming for scalable, pixel-perfect interfaces that align with brand identity.",
+        "journey": "My Journey",
+        "perf": "Performance Optimized",
+        "design": "UI/UX Focused",
+        "access": "React.js & Tailwind"
+    },
+    "skills": {
+        "title": "Technical Proficiency",
+        "heading1": "Powered by",
+        "heading2": "modern technologies.",
+        "description": "I leverage the latest tools and frameworks to build robust, scalable, and beautiful applications.",
+        "cta": "View Full Tech Stack"
+    },
+    "services": {
+        "title": "Expertise",
+        "heading1": "Solving problems with",
+        "heading2": "design thinking.",
+        "description": "I combine technical expertise with design sensibilities to create digital products that stand out.",
+        "explore": "Explore Service",
+        "viewAll": "View All Services",
+        "items": {
+            "web-design": {
+                "title": "Web Design",
+                "description": "Crafting visually stunning and user-centric interfaces that tell your brand's story."
+            },
+            "development": {
+                "title": "Development",
+                "description": "Building robust, scalable, and performant web applications using modern technologies."
+            },
+            "motion": {
+                "title": "Motion & Branding",
+                "description": "Adding life and identity to digital products through purposeful motion and interaction."
+            },
+            "strategy": {
+                "title": "Digital Strategy",
+                "description": "Aligning digital solutions with business goals to drive growth and engagement."
+            }
+        }
+    },
+    "projects": {
+        "title": "Selected Works",
+        "heading": "Crafting Digital Excellence",
+        "items": {
+            "1": {
+                "title": "Janseva Portal",
+                "category": "Civic Platform",
+                "description": "Civic issue reporting platform for Viksit Bharat initiative using React, Node, and Socket.io."
+            },
+            "2": {
+                "title": "Heavenstay",
+                "category": "Booking Platform",
+                "description": "Full-stack Airbnb-inspired villa booking app with CRUD, auth, and responsive UI."
+            },
+            "3": {
+                "title": "Portfolio Website",
+                "category": "Web Design",
+                "description": "Modern, high-performance portfolio website built with Next.js, Framer Motion, and GSAP."
+            },
+            "4": {
+                "title": "FitIndia",
+                "category": "Health & Fitness",
+                "description": "FitIndia app is a health and fitness app that helps users track their fitness goals and progress."
+            }
+        }
+    },
+    "process": {
+        "title": "How I Work",
+        "heading1": "From",
+        "heading2": "Concept to Reality.",
+        "steps": {
+            "01": {
+                "title": "Discovery",
+                "description": "We dive deep into your vision, understanding your target audience, competitors, and business goals to build a solid strategic foundation."
+            },
+            "02": {
+                "title": "Strategy",
+                "description": "Crafting a tailored roadmap and user experience strategy that aligns with your objectives, ensuring every pixel serves a purpose."
+            },
+            "03": {
+                "title": "Design",
+                "description": "Creating high-fidelity, interactive prototypes that bring the vision to life with pixel-perfect aesthetics and intuitive usability."
+            },
+            "04": {
+                "title": "Development",
+                "description": "Building robust, scalable, and performant applications using modern technologies, ensuring a seamless experience across all devices."
+            }
+        }
+    },
+    "experience": {
+        "title": "Work Experience",
+        "items": {
+            "0": {
+                "company": "WebNX Pvt. Ltd",
+                "role": "Web Developer",
+                "period": "Sep 2024 - Jan 2025",
+                "description": "Built responsive, cross-platform UI using React.js and Tailwind CSS. Integrated secure authentication and collaborated with designers for pixel-perfect brand alignment."
+            },
+            "1": {
+                "company": "Silver Oak University",
+                "role": "Internship Trainee",
+                "period": "Internship",
+                "description": "Gained practical experience in frontend/backend technologies. Built responsive web apps and integrated RESTful APIs using Context API for state management."
+            }
+        }
+    },
+    "gallery": {
+        "title": "Gallery",
+        "heading": "A Glimpse Into My World",
+        "viewAll": "View All Photos",
+        "items": {
+            "1": {
+                "title": "Workspace Setup",
+                "category": "Lifestyle"
+            },
+            "2": {
+                "title": "Design System",
+                "category": "Work"
+            },
+            "3": {
+                "title": "Neon Nights",
+                "category": "Photography"
+            },
+            "4": {
+                "title": "Code Minimal",
+                "category": "Dev"
+            },
+            "5": {
+                "title": "Abstract Flow",
+                "category": "Art"
+            },
+            "6": {
+                "title": "Tech Stack",
+                "category": "Gear"
+            }
+        }
+    },
+    "insights": {
+        "title": "Insights",
+        "heading": "Thoughts & Code",
+        "viewAll": "Read All Articles",
+        "items": {
+            "1": {
+                "title": "The Future of Web Animation: Beyond Parallax",
+                "category": "Development",
+                "excerpt": "Exploring how WebGL, GSAP, and R3F are shaping the next generation of immersive web experiences, moving beyond simple scroll effects to fully interactive 3D worlds."
+            },
+            "2": {
+                "title": "Designing for Dark Mode: A Comprehensive Guide",
+                "category": "Design",
+                "excerpt": "Dark mode is more than just a color swap. It requires careful consideration of contrast, saturation, and elevation to ensure a premium and accessible user experience."
+            },
+            "3": {
+                "title": "Optimizing Next.js for Performance",
+                "category": "Engineering",
+                "excerpt": "Practical tips and techniques to achieve perfect Lighthouse scores with Next.js 14, focusing on Core Web Vitals, image optimization, and code splitting."
+            }
+        }
+    },
+    "cta": {
+        "heading1": "Let's Build",
+        "heading2": "Something Iconic.",
+        "description": "Ready to transform your digital presence? I'm currently available for freelance projects and collaborations.",
+        "startProject": "Start a Project",
+        "getInTouch": "Get in Touch"
+    },
+    "guestbook": {
+        "title": "Community",
+        "heading1": "Guestbook",
+        "heading2": " & Wall of Love.",
+        "description": "A space for visitors to leave their mark. Thank you for visiting my digital home!",
+        "signButton": "Sign Guestbook",
+        "modal": {
+            "title": "Leave a Mark",
+            "subtitle": "Guestbook Signature",
+            "labelName": "Display Name",
+            "placeholderName": "Who are you?",
+            "labelMessage": "Your Message",
+            "placeholderMessage": "Say something nice...",
+            "submit": "Sign Guestbook",
+            "successTitle": "Signature Added!",
+            "successText": "Thank you for signing the guestbook."
+        }
+    },
+    "bio": {
+        "title": "The Person Behind The Code",
+        "heading1": "Design driven.",
+        "heading2": "Engineering focused.",
+        "para1": "Hi, I'm Ratnesh. I sit at the intersection of design and engineering. My philosophy is simple: technology should be invisible, and experiences should be unforgettable.",
+        "para2": "With over 8 years of experience shipping production-grade software, I've learned that the secret to great products isn't just clean code or pretty pixels—it's how they work together to solve real human problems.",
+        "stats": {
+            "exp": "Years Experience",
+            "projects": "Projects Completed",
+            "clients": "Happy Clients",
+            "awards": "Awards Won"
+        }
+    },
+    "philosophy": {
+        "title": "My Philosophy",
+        "items": {
+            "0": {
+                "title": "Performance First",
+                "description": "Speed is a feature. I prioritize efficient code, optimized assets, and smooth 60fps animations to ensure every interaction feels instantaneous."
+            },
+            "1": {
+                "title": "Pixel Perfection",
+                "description": "Details matter. From consistent spacing to perfect typography, I obsess over the small things that elevate a product from good to great."
+            },
+            "2": {
+                "title": "User-Centric",
+                "description": "Empathy drives my design decisions. I build accessible, inclusive interfaces that work for everyone, regardless of device or ability."
+            },
+            "3": {
+                "title": "Scalable Architecture",
+                "description": "I write clean, modular, and maintainable code. Building systems that can grow and evolve without accumulating technical debt."
+            }
+        }
+    },
+    "timeline": {
+        "title": "My Journey",
+        "items": {
+            "0": {
+                "title": "Senior Frontend Engineer",
+                "subtitle": "TechFlow",
+                "description": "Leading the frontend team, establishing design systems, and migrating legacy codebases to Next.js.",
+                "year": "2023 - Present"
+            },
+            "1": {
+                "title": "Frontend Developer",
+                "subtitle": "Creative Studios",
+                "description": "Built award-winning experiential websites for major brands using WebGL and GSAP.",
+                "year": "2021 - 2023"
+            },
+            "2": {
+                "title": "Junior Developer",
+                "subtitle": "StartUp Inc",
+                "description": "Collaborated on the launch of a fintech mobile app, focusing on UI implementation.",
+                "year": "2020 - 2021"
+            },
+            "3": {
+                "title": "B.Tech in Computer Science",
+                "subtitle": "University of Technology",
+                "description": "Specialized in Human-Computer Interaction and Web Technologies.",
+                "year": "2016 - 2020"
+            }
+        }
+    },
+    "techProficiency": {
+        "title": "Technical Arsenal",
+        "heading1": "Tools I use to ",
+        "heading2": "build the future.",
+        "categories": {
+            "0": {
+                "title": "Frontend Engineering",
+                "description": "Building immersive, pixel-perfect user interfaces."
+            },
+            "1": {
+                "title": "Backend & Architecture",
+                "description": "Designing scalable and secure server-side systems."
+            },
+            "2": {
+                "title": "Mobile & Cross-Platform",
+                "description": "Crafting native-like experiences for mobile devices."
+            },
+            "3": {
+                "title": "Design & Creative",
+                "description": "Bridging the gap between design and code."
+            },
+            "4": {
+                "title": "DevOps & Tools",
+                "description": "Streamlining development and deployment workflows."
+            },
+            "5": {
+                "title": "Core Concepts",
+                "description": "Deep understanding of computer science fundamentals."
+            }
+        }
+    },
+    "aboutPage": {
+        "hero": {
+            "badge": "About Me",
+            "heading1": "More than",
+            "heading2": "just code.",
+            "description": "I'm Ratnesh, a developer who believes that the best code is invisible, and the best experiences are unforgettable. I sit at the intersection of design and engineering.",
+            "role": "Full Stack Engineer"
+        },
+        "stats": {
+            "exp": "Years Experience",
+            "projects": "Projects Shipped",
+            "clients": "Happy Clients",
+            "coffee": "Coffee Consumed"
+        },
+        "philosophy": {
+            "badge": "Core Values",
+            "title": "Engineering Philosophy"
+        },
+        "journey": {
+            "badge": "My Path",
+            "title": "The Journey So Far"
+        },
+        "toolkit": {
+            "badge": "Toolkit",
+            "title": "Technical Arsenal"
+        },
+        "gear": {
+            "title": "My Gear",
+            "figmaDesc": "Where design happens"
+        },
+        "learning": {
+            "title": "Continuous Learning",
+            "quote": "\"The more that you read, the more things you will know. The more that you learn, the more places you'll go.\""
+        },
+        "personal": {
+            "badge": "Personal",
+            "title": "Beyond the Screen",
+            "hobbies": {
+                "gaming": {
+                    "label": "Gaming",
+                    "desc": "RPG & Strategy enthusiast"
+                },
+                "coffee": {
+                    "label": "Specialty Coffee",
+                    "desc": "V60 & AeroPress brewer"
+                },
+                "traveling": {
+                    "label": "Traveling",
+                    "desc": "Exploring new cultures"
+                },
+                "music": {
+                    "label": "Music",
+                    "desc": "Lo-fi beats while coding"
+                }
+            }
+        },
+        "cta": {
+            "title": "Ready to start a project?",
+            "button": "Let's Talk"
+        }
+    },
+    "projectsPage": {
+        "hero": {
+            "title": "Selected Works",
+            "subtitle": "A curated collection of projects that push the boundaries of design and technology."
+        },
+        "filter": {
+            "label": "Filter"
+        },
+        "categories": {
+            "All": "All",
+            "Web Design": "Web Design",
+            "Development": "Development",
+            "Product Design": "Product Design",
+            "Motion Design": "Motion Design"
+        }
+    },
+    "servicesPage": {
+        "hero": {
+            "title": "Services",
+            "subtitle": "Transforming ideas into digital reality through specialized expertise."
+        },
+        "items": {
+            "web-design": {
+                "title": "Web Design",
+                "description": "Crafting visually stunning and user-centric interfaces that tell your brand's story.",
+                "detailedDescription": "I believe that design is not just about how things look, but how they work. My web design process involves deep research into your brand and users, followed by iterative wireframing and high-fidelity prototyping. I focus on creating emotional connections through aesthetics, typography, and layout.",
+                "features": {
+                    "0": "UI/UX Design",
+                    "1": "Design Systems",
+                    "2": "Prototyping",
+                    "3": "Responsive Layouts"
+                },
+                "startProject": "Start Web Design Project"
+            },
+            "development": {
+                "title": "Development",
+                "description": "Building robust, scalable, and performant web applications using modern technologies.",
+                "detailedDescription": "I translate designs into pixel-perfect code. specialized in the React ecosystem (Next.js), I build fast, accessible, and SEO-friendly applications. I pay attention to code quality, performance optimization, and maintainability.",
+                "features": {
+                    "0": "React / Next.js",
+                    "1": "TypeScript",
+                    "2": "Tailwind CSS",
+                    "3": "Headless CMS Integration"
+                },
+                "startProject": "Start Development Project"
+            },
+            "motion": {
+                "title": "Motion & Branding",
+                "description": "Adding life and identity to digital products through purposeful motion and interaction.",
+                "detailedDescription": "Motion is the secret ingredient that makes a digital product feel alive. I use libraries like GSAP and Framer Motion to create smooth transitions, micro-interactions, and immersive scroll effects that guide the user and enhance the experience.",
+                "features": {
+                    "0": "GSAP Animations",
+                    "1": "Framer Motion",
+                    "2": "WebGL / Three.js",
+                    "3": "Logo Animation"
+                },
+                "startProject": "Start Motion Project"
+            },
+            "strategy": {
+                "title": "Digital Strategy",
+                "description": "Aligning digital solutions with business goals to drive growth and engagement.",
+                "detailedDescription": "Before a single line of code is written, we need a plan. I help define the digital strategy, identifying the target audience, key performance indicators, and the best technical approach to achieve your business objectives.",
+                "features": {
+                    "0": "Technical Consultation",
+                    "1": "Performance Audits",
+                    "2": "SEO Strategy",
+                    "3": "Accessibility Review"
+                },
+                "startProject": "Start Strategy Project"
+            }
+        },
+        "cta": {
+            "title": "Have a specific project in mind?",
+            "description": "I'm always open to discussing new projects and creative ideas.",
+            "button": "Get in touch"
+        }
+    },
+    "blogPage": {
+        "hero": {
+            "badge": "Thoughts & Perspectives",
+            "title": "Insights & Ideas",
+            "subtitle": "A curated collection of articles on design, engineering, and the future of digital experiences."
+        },
+        "featured": {
+            "label": "Featured",
+            "readMore": "Read Full Article"
+        },
+        "latest": {
+            "title": "Latest Articles",
+            "count": "Articles"
+        },
+        "sidebar": {
+            "topics": "Topics",
+            "subscribe": "Subscribe",
+            "subscribeDesc": "Get the latest insights delivered to your inbox. No spam, ever.",
+            "placeholder": "email@example.com",
+            "button": "Subscribe"
+        },
+        "posts": {
+            "1": {
+                "title": "The Future of Web Animation: Beyond Parallax",
+                "excerpt": "Exploring how WebGL, GSAP, and R3F are shaping the next generation of immersive web experiences.",
+                "category": "Development"
+            },
+            "2": {
+                "title": "Designing for Dark Mode: A Comprehensive Guide",
+                "excerpt": "Dark mode is more than just a color swap. It requires careful consideration of contrast, saturation, and elevation.",
+                "category": "Design"
+            },
+            "3": {
+                "title": "Optimizing Next.js for Performance",
+                "excerpt": "Practical tips and techniques for achieving perfect Lighthouse scores with Next.js 14.",
+                "category": "Engineering"
+            }
+        }
+    },
+    "contactPage": {
+        "hero": {
+            "badge": "Get in Touch",
+            "title1": "Let's build something",
+            "title2": "extraordinary.",
+            "description": "Whether you have a game-changing idea or just want to see if we're a good fit, my inbox is open."
+        },
+        "info": {
+            "email": {
+                "title": "Email",
+                "desc": "For project inquiries & collaborations"
+            },
+            "location": {
+                "title": "Base Location",
+                "value": "India (Available Globally)",
+                "desc": "Working remotely with clients worldwide"
+            },
+            "socials": {
+                "title": "Socials",
+                "value": "Connect on Social Media",
+                "desc": "Follow my journey & latest updates"
+            }
+        },
+        "next": {
+            "title": "What Happens Next?",
+            "steps": {
+                "discovery": {
+                    "title": "1. Discovery",
+                    "desc": "We discuss your goals, requirements, and vision for the project."
+                },
+                "proposal": {
+                    "title": "2. Proposal",
+                    "desc": "I provide a detailed roadmap, timeline, and quote for approval."
+                },
+                "kickoff": {
+                    "title": "3. Kickoff",
+                    "desc": "Development begins with regular updates and feedback loops."
+                }
+            }
+        },
+        "form": {
+            "name": "Name",
+            "namePlaceholder": "John Doe",
+            "email": "Email",
+            "emailPlaceholder": "john@example.com",
+            "subject": "Subject",
+            "subjectPlaceholder": "Project Inquiry",
+            "message": "Message",
+            "messagePlaceholder": "Tell me about your project context, timeline, and goals...",
+            "submit": "Send Message",
+            "sending": "Sending...",
+            "success": "Message Sent!",
+            "successDesc": "Thanks for reaching out! I'll get back to you soon.",
+            "error": "Something went wrong. Please try again or email directly."
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "items": {
+                "availability": {
+                    "q": "What is your typical availability?",
+                    "a": "I am generally available for new projects within 1-2 weeks. For urgent requests, please mention it in the subject line."
+                },
+                "pricing": {
+                    "q": "Do you offer fixed-price or hourly rates?",
+                    "a": "I prefer fixed-price per project to keep budgets predictable, but I'm open to hourly retainers for long-term maintenance."
+                },
+                "tech": {
+                    "q": "What technologies do you specialize in?",
+                    "a": "My core stack includes React, Next.js, TypeScript, Tailwind CSS, and Node.js. I focus on building high-performance, accessible web applications."
+                },
+                "existing": {
+                    "q": "Can you help with existing projects?",
+                    "a": "Absolutely! I can audit your current codebase, optimize performance, or add new features to an existing application."
+                }
+            }
+        }
+    },
+    "privacyPage": {
+        "title": "Privacy Policy",
+        "description": "Transparency is key. Here's how I handle your data with care and respect.",
+        "lastUpdated": "Last Updated",
+        "intro": {
+            "title": "1. Introduction",
+            "text": "Welcome to my portfolio. I respect your privacy and am committed to protecting your personal data. This privacy policy will inform you as to how I look after your personal data when you visit my website and tell you about your privacy rights and how the law protects you."
+        },
+        "data": {
+            "title": "2. Data I Collect",
+            "text": "I may collect, use, store and transfer different kinds of personal data about you which I have grouped together follows:",
+            "list": [
+                "Identity Data includes first name, last name, username or similar identifier.",
+                "Contact Data includes email address and telephone number (if provided via contact form).",
+                "Technical Data includes internet protocol (IP) address, your login data, browser type and version."
+            ]
+        },
+        "usage": {
+            "title": "3. How I Use Your Data",
+            "text": "I will only use your personal data when the law allows me to. Most commonly, I will use your personal data in the following circumstances:",
+            "list": [
+                "Where I need to respond to your inquiries sent via the contact form.",
+                "Where it is necessary for my legitimate interests and your rights do not override those interests."
+            ]
+        },
+        "contact": {
+            "title": "4. Contact Me",
+            "text": "If you have any questions about this privacy policy or my privacy practices, please contact me at:"
+        }
+    },
+    "termsPage": {
+        "title": "Terms of Service",
+        "description": "Please read these terms carefully before using my portfolio website.",
+        "lastUpdated": "Last Updated",
+        "agreement": {
+            "title": "1. Agreement to Terms",
+            "text": "By accessing this website, you agree to be bound by these Terms of Service and all applicable laws and regulations."
+        },
+        "ip": {
+            "title": "2. Intellectual Property",
+            "text": "Unless otherwise indicated, the Site is my proprietary property and all source code, designs, and content are owned or controlled by me."
+        },
+        "reps": {
+            "title": "3. User Representations",
+            "text": "By using the Site, you represent and warrant that you have the legal capacity and agree to comply with these terms."
+        },
+        "limit": {
+            "title": "4. Limitations",
+            "text": "In no event shall Ratnesh or its suppliers be liable for any damages arising out of the use or inability to use the materials."
+        },
+        "law": {
+            "title": "5. Governing Law",
+            "text": "These terms and conditions are governed by and construed in accordance with the laws of India."
+        }
+    },
+    "github": {
+        "activityPulse": "Activity Pulse",
+        "ecosystem": "GitHub",
+        "ecosystemHighlight": "Ecosystem",
+        "description": "Detailed visualization of my open-source contributions, streaks, and engagement across the GitHub graph.",
+        "streak": "Streak",
+        "best": "Best",
+        "days": "Days",
+        "contributionsIn": "Contributions in",
+        "syncLive": "Data Sync Live",
+        "syncing": "Syncing",
+        "unavailable": "Graph Unavailable",
+        "retry": "Retry",
+        "timeline": "Timeline",
+        "last12Months": "Last 12 Months",
+        "yearActivity": "Activity",
+        "less": "Less",
+        "more": "More",
+        "syncActive": "Real-time Fetch Active"
+    },
+    "testimonials": {
+        "title": "Client Reviews",
+        "heading": "Trusted by",
+        "highlight": "Innovators.",
+        "items": {
+            "0": {
+                "name": "Sarah Jenkins",
+                "role": "CEO, TechFlow",
+                "content": "Ratnesh transformed our vague ideas into a stunning digital reality. His attention to detail and design sensibility is unmatched."
+            },
+            "1": {
+                "name": "Michael Chen",
+                "role": "Product Lead, StartUp Inc",
+                "content": "The best frontend developer I've worked with. He understands both code and design, which makes the collaboration seamless."
+            },
+            "2": {
+                "name": "Elena Rodriguez",
+                "role": "Founder, Creative Studios",
+                "content": "Delivered the project ahead of schedule and with quality that exceeded our expectations. Highly recommended!"
+            },
+            "3": {
+                "name": "David Kim",
+                "role": "CTO, FinTech Sol",
+                "content": "His ability to animate complex UIs without compromising performance is incredible. Our users love the new dashboard."
+            },
+            "4": {
+                "name": "Jessica Lee",
+                "role": "Marketing Director",
+                "content": "A true professional who brings creativity to every problem. The new landing page increased our conversions by 40%."
+            }
+        }
+    }
+}

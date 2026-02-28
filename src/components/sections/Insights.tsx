@@ -7,11 +7,13 @@ import { ArrowRight, Calendar } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogData";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Insights() {
     const containerRef = useRef<HTMLElement>(null);
+    const { t } = useTranslation();
 
     // Use only the first 3 posts for the "Featured" section
     const featuredInsights = blogPosts.slice(0, 3);
@@ -41,15 +43,15 @@ export default function Insights() {
     }, []);
 
     return (
-        <section ref={containerRef} className="py-32 px-6 md:px-20 bg-zinc-50 dark:bg-zinc-900/10">
+        <section ref={containerRef} className="py-16 md:py-32 px-6 md:px-20 bg-zinc-50 dark:bg-zinc-900/10">
             <div className="max-w-5xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                     <div>
-                        <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground mb-4">Insights</h2>
-                        <h3 className="text-4xl font-heading font-medium">Thoughts & Code</h3>
+                        <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground mb-4">{t("insights.title")}</h2>
+                        <h3 className="text-4xl font-heading font-medium">{t("insights.heading")}</h3>
                     </div>
                     <Button variant="outline" size="sm" asChild className="rounded-full">
-                        <Link href="/blog">Read All Articles</Link>
+                        <Link href="/blog">{t("insights.viewAll")}</Link>
                     </Button>
                 </div>
 
@@ -63,15 +65,16 @@ export default function Insights() {
                             <div className="flex flex-col md:flex-row justify-between md:items-center gap-6">
                                 <div className="space-y-3">
                                     <div className="flex items-center gap-3 text-xs text-muted-foreground uppercase tracking-wider">
-                                        <span className="text-primary font-medium">{post.category}</span>
+                                        <span className="text-primary font-medium">{t(`insights.items.${post.id}.category`)}</span>
                                         <span>•</span>
                                         <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</span>
                                     </div>
-                                    <h4 className="text-2xl font-medium group-hover:text-primary transition-colors">{post.title}</h4>
+                                    <h4 className="text-2xl font-medium group-hover:text-primary transition-colors">{t(`insights.items.${post.id}.title`)}</h4>
                                     <p className="text-muted-foreground max-w-2xl leading-relaxed">
-                                        {post.excerpt}
+                                        {t(`insights.items.${post.id}.excerpt`)}
                                     </p>
                                 </div>
+
                                 <div className="flex-shrink-0">
                                     <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300">
                                         <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-white transition-colors" />

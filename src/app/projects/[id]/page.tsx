@@ -100,7 +100,7 @@ export default function ProjectDetail() {
     return (
         <div ref={containerRef} className="min-h-screen bg-background selection:bg-primary/20">
             {/* Hero Section */}
-            <div className="relative h-[90vh] min-h-[700px] w-full overflow-hidden">
+            <div className="relative h-[70vh] md:h-[90vh] min-h-[600px] md:min-h-[700px] w-full overflow-hidden">
                 <div ref={heroImageRef} className="absolute inset-0 h-[120%] w-full">
                     <Image
                         src={project.image || "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"}
@@ -113,7 +113,7 @@ export default function ProjectDetail() {
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
 
-                <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-20 flex flex-col justify-end pb-32">
+                <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-20 flex flex-col justify-end pt-32 pb-32">
                     <Link href="/projects" className="hero-element inline-flex items-center text-white/70 hover:text-primary transition-colors mb-8 group w-fit">
                         <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
                         Back to All Projects

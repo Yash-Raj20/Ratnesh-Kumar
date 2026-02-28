@@ -2,31 +2,17 @@
 
 import { motion } from "framer-motion";
 import { Zap, Eye, Heart, Layers } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const philosophies = [
-    {
-        icon: Zap,
-        title: "Performance First",
-        description: "Speed is a feature. I prioritize efficient code, optimized assets, and smooth 60fps animations to ensure every interaction feels instantaneous."
-    },
-    {
-        icon: Eye,
-        title: "Pixel Perfection",
-        description: "Details matter. From consistent spacing to perfect typography, I obsess over the small things that elevate a product from good to great."
-    },
-    {
-        icon: Heart,
-        title: "User-Centric",
-        description: "Empathy drives my design decisions. I build accessible, inclusive interfaces that work for everyone, regardless of device or ability."
-    },
-    {
-        icon: Layers,
-        title: "Scalable Architecture",
-        description: "I write clean, modular, and maintainable code. Building systems that can grow and evolve without accumulating technical debt."
-    }
+    { icon: Zap, key: "0" },
+    { icon: Eye, key: "1" },
+    { icon: Heart, key: "2" },
+    { icon: Layers, key: "3" }
 ];
 
 export default function Philosophy() {
+    const { t } = useTranslation();
     return (
         <section className="py-24 px-6 md:px-20 bg-zinc-50 dark:bg-zinc-900/30">
             <div className="max-w-7xl mx-auto">
@@ -37,7 +23,7 @@ export default function Philosophy() {
                     viewport={{ once: true }}
                     className="text-sm font-medium uppercase tracking-widest text-muted-foreground mb-16 text-center"
                 >
-                    My Philosophy
+                    {t("philosophy.title")}
                 </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -53,9 +39,9 @@ export default function Philosophy() {
                             <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary">
                                 <item.icon className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-medium mb-3">{item.title}</h3>
+                            <h3 className="text-xl font-medium mb-3">{t(`philosophy.items.${item.key}.title`)}</h3>
                             <p className="text-muted-foreground leading-relaxed">
-                                {item.description}
+                                {t(`philosophy.items.${item.key}.description`)}
                             </p>
                         </motion.div>
                     ))}

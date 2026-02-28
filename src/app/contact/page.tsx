@@ -5,15 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-    Mail, MapPin, Phone, Github, Linkedin, Twitter, ArrowRight, Send,
-    CheckCircle2, Clock, HelpCircle, MessageSquare, Coffee, Globe
+    Mail, MapPin, Github, Linkedin, Twitter, ArrowRight, Send,
+    CheckCircle2, Coffee, HelpCircle, MessageSquare
 } from "lucide-react";
 import ElectricNodesBg from "@/components/ui/ElectricNodesBg";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function ContactPage() {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -52,36 +53,34 @@ export default function ContactPage() {
             } else {
                 setStatus('error');
                 console.error("Web3Forms Error:", result);
-                // alert("Form submission failed: " + (result.message || "Unknown error"));
             }
         } catch (error) {
             console.error("Fetch Error:", error);
             setStatus('error');
-            // alert("Something went wrong. Please check your internet connection.");
         }
     };
 
     const contactInfo = [
         {
             icon: Mail,
-            title: "Email",
+            title: t('contactPage.info.email.title'),
             value: "hello@ratnesh.dev",
             link: "mailto:hello@ratnesh.dev",
-            description: "For project inquiries & collaborations"
+            description: t('contactPage.info.email.desc')
         },
         {
             icon: MapPin,
-            title: "Base Location",
-            value: "India (Available Globally)",
+            title: t('contactPage.info.location.title'),
+            value: t('contactPage.info.location.value'),
             link: null,
-            description: "Working remotely with clients worldwide"
+            description: t('contactPage.info.location.desc')
         },
         {
             icon: MessageSquare,
-            title: "Socials",
-            value: "Connect on Social Media",
-            link: "#", // Scroll to financials
-            description: "Follow my journey & latest updates"
+            title: t('contactPage.info.socials.title'),
+            value: t('contactPage.info.socials.value'),
+            link: "#",
+            description: t('contactPage.info.socials.desc')
         }
     ];
 
@@ -94,42 +93,42 @@ export default function ContactPage() {
     const timelineSteps = [
         {
             icon: MessageSquare,
-            title: "1. Discovery",
-            desc: "We discuss your goals, requirements, and vision for the project."
+            title: t('contactPage.next.steps.discovery.title'),
+            desc: t('contactPage.next.steps.discovery.desc')
         },
         {
             icon: Coffee,
-            title: "2. Proposal",
-            desc: "I provide a detailed roadmap, timeline, and quote for approval."
+            title: t('contactPage.next.steps.proposal.title'),
+            desc: t('contactPage.next.steps.proposal.desc')
         },
         {
             icon: CheckCircle2,
-            title: "3. Kickoff",
-            desc: "Development begins with regular updates and feedback loops."
+            title: t('contactPage.next.steps.kickoff.title'),
+            desc: t('contactPage.next.steps.kickoff.desc')
         }
     ];
 
     const faqs = [
         {
-            question: "What is your typical availability?",
-            answer: "I am generally available for new projects within 1-2 weeks. For urgent requests, please mention it in the subject line."
+            question: t('contactPage.faq.items.availability.q'),
+            answer: t('contactPage.faq.items.availability.a')
         },
         {
-            question: "Do you offer fixed-price or hourly rates?",
-            answer: "I prefer fixed-price per project to keep budgets predictable, but I'm open to hourly retainers for long-term maintenance."
+            question: t('contactPage.faq.items.pricing.q'),
+            answer: t('contactPage.faq.items.pricing.a')
         },
         {
-            question: "What technologies do you specialize in?",
-            answer: "My core stack includes React, Next.js, TypeScript, Tailwind CSS, and Node.js. I focus on building high-performance, accessible web applications."
+            question: t('contactPage.faq.items.tech.q'),
+            answer: t('contactPage.faq.items.tech.a')
         },
         {
-            question: "Can you help with existing projects?",
-            answer: "Absolutely! I can audit your current codebase, optimize performance, or add new features to an existing application."
+            question: t('contactPage.faq.items.existing.q'),
+            answer: t('contactPage.faq.items.existing.a')
         }
     ];
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 md:px-20 relative overflow-hidden bg-background">
+        <div className="min-h-screen pt-40 md:pt-60 pb-20 px-6 md:px-20 relative overflow-hidden bg-background">
             {/* Background Elements */}
             <ElectricNodesBg />
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10" />
@@ -149,14 +148,14 @@ export default function ContactPage() {
                         >
                             <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-4 flex items-center gap-2">
                                 <span className="w-8 h-[2px] bg-primary"></span>
-                                Get in Touch
+                                {t('contactPage.hero.badge')}
                             </h2>
                             <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 leading-[1.1]">
-                                Let's build something <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-indigo-500 animate-gradient-x">extraordinary.</span>
+                                {t('contactPage.hero.title1')} <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-indigo-500 animate-gradient-x">{t('contactPage.hero.title2')}</span>
                             </h1>
                             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                                Whether you have a game-changing idea or just want to verify if we're a good fit, my inbox is open.
+                                {t('contactPage.hero.description')}
                             </p>
                         </motion.div>
 
@@ -192,7 +191,7 @@ export default function ContactPage() {
                             transition={{ delay: 0.6 }}
                             className="pt-8 border-t border-border/40"
                         >
-                            <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-8">What Happens Next?</h3>
+                            <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-8">{t('contactPage.next.title')}</h3>
                             <div className="space-y-8 relative pl-2">
                                 {/* Vertical Line */}
                                 <div className="absolute left-[19px] top-2 bottom-4 w-[2px] bg-gradient-to-b from-primary/50 to-transparent" />
@@ -233,19 +232,19 @@ export default function ContactPage() {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">Name</label>
+                                        <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">{t('contactPage.form.name')}</label>
                                         <Input
                                             id="name"
                                             name="name"
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
-                                            placeholder="John Doe"
+                                            placeholder={t('contactPage.form.namePlaceholder')}
                                             className="bg-background/50 border-border/50 h-14 rounded-2xl focus-visible:ring-primary/30 transition-all hover:bg-background/80"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">Email</label>
+                                        <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">{t('contactPage.form.email')}</label>
                                         <Input
                                             id="email"
                                             name="email"
@@ -253,32 +252,32 @@ export default function ContactPage() {
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            placeholder="john@example.com"
+                                            placeholder={t('contactPage.form.emailPlaceholder')}
                                             className="bg-background/50 border-border/50 h-14 rounded-2xl focus-visible:ring-primary/30 transition-all hover:bg-background/80"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">Subject</label>
+                                    <label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">{t('contactPage.form.subject')}</label>
                                     <Input
                                         id="subject"
                                         name="subject"
                                         value={formData.subject}
                                         onChange={handleChange}
                                         required
-                                        placeholder="Project Inquiry"
+                                        placeholder={t('contactPage.form.subjectPlaceholder')}
                                         className="bg-background/50 border-border/50 h-14 rounded-2xl focus-visible:ring-primary/30 transition-all hover:bg-background/80"
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">Message</label>
+                                    <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider pl-1 text-muted-foreground">{t('contactPage.form.message')}</label>
                                     <Textarea
                                         id="message"
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        placeholder="Tell me about your project context, timeline, and goals..."
+                                        placeholder={t('contactPage.form.messagePlaceholder')}
                                         className="min-h-[200px] bg-background/50 border-border/50 rounded-2xl resize-none focus-visible:ring-primary/30 transition-all hover:bg-background/80 p-5 leading-relaxed"
                                     />
                                 </div>
@@ -293,20 +292,20 @@ export default function ContactPage() {
                                 >
                                     <span className="relative z-10 flex items-center justify-center gap-2">
                                         {status === 'submitting' ? (
-                                            <>Sending...</>
+                                            <>{t('contactPage.form.sending')}</>
                                         ) : status === 'success' ? (
-                                            <>Message Sent! <CheckCircle2 className="w-5 h-5" /></>
+                                            <>{t('contactPage.form.success')} <CheckCircle2 className="w-5 h-5" /></>
                                         ) : (
-                                            <>Send Message <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
+                                            <>{t('contactPage.form.submit')} <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
                                         )}
                                     </span>
                                 </Button>
 
                                 {status === 'error' && (
-                                    <p className="text-red-500 text-sm text-center mt-2">Something went wrong. Please try again or email directly.</p>
+                                    <p className="text-red-500 text-sm text-center mt-2">{t('contactPage.form.error')}</p>
                                 )}
                                 {status === 'success' && (
-                                    <p className="text-green-500 text-sm text-center mt-2">Thanks for reaching out! I'll get back to you soon.</p>
+                                    <p className="text-green-500 text-sm text-center mt-2">{t('contactPage.form.successDesc')}</p>
                                 )}
                             </form>
                         </motion.div>
@@ -320,7 +319,7 @@ export default function ContactPage() {
                         >
                             <h3 className="text-2xl font-heading font-bold mb-8 flex items-center gap-3">
                                 <HelpCircle className="w-6 h-6 text-primary" />
-                                Frequently Asked Questions
+                                {t('contactPage.faq.title')}
                             </h3>
                             <Accordion className="space-y-4">
                                 {faqs.map((faq, i) => (
