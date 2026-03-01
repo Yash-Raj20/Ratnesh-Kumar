@@ -8,7 +8,8 @@ import Testimonials from "@/components/sections/Testimonials"; // New
 import Gallery from "@/components/sections/Gallery"; // New
 import WorkExperience from "@/components/sections/WorkExperience";
 import Insights from "@/components/sections/Insights"; // New
-import CallToAction from "@/components/sections/CallToAction"; // New
+import BookingSection from "@/components/sections/BookingSection";
+import CallToAction from "@/components/sections/CallToAction";
 import GithubContributions from "@/components/sections/GithubContributions";
 import Guestbook from "@/components/sections/Guestbook";
 // import ContactCTA from "@/components/sections/ContactCTA"; // Identifying overlap with CallToAction
@@ -23,6 +24,7 @@ export default function Home() {
       <FeaturedProjects />
       <Process />
       <WorkExperience />
+      <BookingSection />
       <Gallery />
       <GithubContributions />
       <Guestbook />

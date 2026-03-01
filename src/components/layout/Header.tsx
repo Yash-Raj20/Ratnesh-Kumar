@@ -2,23 +2,34 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { CommandPalette } from "@/components/ui/CommandPalette";
-import { StatusWidget } from "@/components/ui/StatusWidget";
 import { AIAssistant } from "@/components/ui/AIAssistant";
-import { Menu, X, ArrowRight, Home, User, Layers, BookOpen, MessageSquare, Briefcase, Bot } from "lucide-react";
+import { Menu, X, ArrowRight, Home, User, Layers, BookOpen, MessageSquare, Briefcase, Bot, Calculator, LayoutDashboard } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
+import { AnimatedIcon } from "@/components/ui/AnimatedIcon";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Calendar } from "lucide-react";
 
 export default function Header() {
     const { scrollY } = useScroll();
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const { t } = useTranslation();
+
+    // Hide Header on Components Library page (UI Lab)
+    if (pathname === "/components") return null;
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         setScrolled(latest > 50);
@@ -33,11 +44,11 @@ export default function Header() {
     ];
 
     const mobileTabs = [
-        { name: t("common.nav.home"), href: "/", icon: Home },
-        { name: t("common.nav.projects"), href: "/projects", icon: Briefcase },
-        { name: t("common.nav.blog"), href: "/blog", icon: BookOpen },
-        { name: t("common.nav.about"), href: "/about", icon: User },
-        { name: t("common.nav.contact"), href: "/contact", icon: MessageSquare },
+        { name: t("common.nav.home"), href: "/", iconName: "home" },
+        { name: t("common.nav.projects"), href: "/projects", iconName: "briefcase" },
+        { name: t("common.nav.blog"), href: "/blog", iconName: "book-open" },
+        { name: t("common.nav.about"), href: "/about", iconName: "user" },
+        { name: t("common.nav.contact"), href: "/contact", iconName: "message-square" },
     ];
 
     return (
@@ -59,7 +70,7 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop active Nav pill */}
-                    <nav className="flex items-center gap-1 mx-2">
+                    <nav className="flex items-center gap-0">
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href));
                             return (
@@ -85,6 +96,54 @@ export default function Header() {
                     </nav>
 
                     <div className="flex items-center gap-2 pl-2 border-l border-white/10">
+
+                        <div className=" flex items-center gap-2">
+                            <DropdownMenu modal={false}>
+                                <DropdownMenuTrigger asChild>
+                                    <button className="w-10 h-10 rounded-full bg-zinc-800/50 hover:bg-zinc-800 border border-white/10 flex items-center justify-center text-primary transition-all active:scale-90 shadow-lg">
+                                        <Menu size={20} />
+                                    </button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end" className="w-56 mt-2 bg-zinc-950/50 backdrop-blur-xl border-white/10 rounded-2xl p-2 shadow-2xl z-[100]">
+                                    <DropdownMenuLabel className="text-[10px] uppercase tracking-widest text-zinc-500 px-3 py-2">Quick Actions</DropdownMenuLabel>
+                                    <DropdownMenuItem
+                                        asChild
+                                        className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer data-[highlighted]:bg-primary/10"
+                                    >
+                                        <Link href="/estimate" className="w-full flex items-center gap-3">
+                                            <Calculator size={20} className="text-primary" />
+                                            <div className="flex flex-col">
+                                                <span className="text-sm font-bold">Project Estimator</span>
+                                                <span className="text-[12px] text-zinc-500">Calculate cost & time</span>
+                                            </div>
+                                        </Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        onClick={() => window.open("https://cal.com/ratnesh-kumar123/15min", '_blank')}
+                                        className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer data-[highlighted]:bg-primary/10"
+                                    >
+                                        <Calendar size={20} className="text-primary" />
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-bold">Book a Call</span>
+                                            <span className="text-[12px] text-zinc-500">15-min discovery call</span>
+                                        </div>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        asChild
+                                        className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer data-[highlighted]:bg-primary/10"
+                                    >
+                                        <Link href="/components" target="_blank" className="w-full flex items-center gap-3">
+                                            <LayoutDashboard size={20} className="text-primary" />
+                                            <div className="flex flex-col">
+                                                <span className="text-sm font-bold">UI Lab</span>
+                                                <span className="text-[12px] text-zinc-500">Components Library</span>
+                                            </div>
+                                        </Link>
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                        </div>
+
                         <LanguageSwitcher />
                         <CommandPalette />
                         <ThemeSwitcher />
@@ -110,7 +169,6 @@ export default function Header() {
                 >
                     {mobileTabs.map((link) => {
                         const isActive = pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href));
-                        const Icon = link.icon;
 
                         return (
                             <Link
@@ -123,11 +181,16 @@ export default function Header() {
                             >
                                 <div className={cn(
                                     "p-1.5 rounded-xl transition-all duration-500",
-                                    isActive ? "bg-primary/10 scale-110 shadow-[0_0_15px_rgba(var(--primary),0.1)]" : "scale-100"
+                                    isActive ? "bg-primary/10 shadow-[0_0_15px_rgba(var(--primary),0.1)]" : ""
                                 )}>
-                                    <Icon size={18} className={cn(
-                                        isActive ? "stroke-[2.5px]" : "stroke-2"
-                                    )} />
+                                    <AnimatedIcon
+                                        name={link.iconName}
+                                        isActive={isActive}
+                                        size={18}
+                                        className={cn(
+                                            isActive ? "stroke-[2.5px]" : "stroke-2"
+                                        )}
+                                    />
                                 </div>
                                 <span className={cn(
                                     "text-[9px] font-bold uppercase tracking-tight transition-all duration-300",
@@ -135,7 +198,6 @@ export default function Header() {
                                 )}>
                                     {link.name}
                                 </span>
-
                             </Link>
                         );
                     })}
@@ -160,6 +222,52 @@ export default function Header() {
                     </button>
                     <LanguageSwitcher />
                     <ThemeSwitcher />
+                    <div className="lg:hidden flex items-center gap-2">
+                        <DropdownMenu modal={false}>
+                            <DropdownMenuTrigger asChild>
+                                <button className="w-10 h-10 rounded-full bg-zinc-800/50 hover:bg-zinc-800 border border-white/10 flex items-center justify-center text-primary transition-all active:scale-90 shadow-lg">
+                                    <Menu size={20} />
+                                </button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" className="w-56 bg-zinc-950/90 backdrop-blur-xl border-white/10 rounded-2xl p-2 shadow-2xl z-[100]">
+                                <DropdownMenuLabel className="text-[10px] uppercase tracking-widest text-zinc-500 px-3 py-2">Quick Actions</DropdownMenuLabel>
+                                <DropdownMenuItem
+                                    asChild
+                                    className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer data-[highlighted]:bg-primary/10"
+                                >
+                                    <Link href="/estimate" className="w-full flex items-center gap-3">
+                                        <Calculator size={20} className="text-primary" />
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-bold">Project Estimator</span>
+                                            <span className="text-[12px] text-zinc-500">Calculate cost & time</span>
+                                        </div>
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                    onClick={() => window.open("https://cal.com/ratnesh-kumar123/15min", '_blank')}
+                                    className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer data-[highlighted]:bg-primary/10"
+                                >
+                                    <Calendar size={20} className="text-primary" />
+                                    <div className="flex flex-col">
+                                        <span className="text-sm font-bold">Book a Call</span>
+                                        <span className="text-[12px] text-zinc-500">15-min discovery call</span>
+                                    </div>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                    asChild
+                                    className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer data-[highlighted]:bg-primary/10"
+                                >
+                                    <Link href="/components" target="_blank" className="w-full flex items-center gap-3">
+                                        <Bot size={20} className="text-primary" />
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-bold">UI Lab</span>
+                                            <span className="text-[12px] text-zinc-500">Components Library</span>
+                                        </div>
+                                    </Link>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
                 </div>
             </header>
 

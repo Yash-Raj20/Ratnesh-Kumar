@@ -26,7 +26,7 @@ export function StatusWidget() {
     if (!mounted) return null;
 
     return (
-        <div className="flex items-center gap-6 px-6 py-3 rounded-full bg-zinc-900/50 backdrop-blur-md border border-white/5 hover:border-primary/20 transition-all duration-500 shadow-xl shadow-black/20">
+        <div className="flex items-center gap-3 md:gap-6 px-4 py-3 rounded-full bg-zinc-900/50 backdrop-blur-md border border-white/5 hover:border-primary/20 transition-all duration-500 shadow-xl shadow-black/20">
             {/* Clock */}
             <div className="flex items-center gap-3 border-r border-white/10 pr-6">
                 <Clock className="w-4.5 h-4.5 text-primary animate-pulse" />

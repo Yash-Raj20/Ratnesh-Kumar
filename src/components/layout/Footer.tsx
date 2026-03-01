@@ -6,10 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { StatusWidget } from "@/components/ui/StatusWidget";
 import { useTranslation } from "react-i18next";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+    const pathname = usePathname();
     const currentYear = new Date().getFullYear();
     const { t } = useTranslation();
+
+    if (pathname === "/components") return null;
 
     const socialLinks = [
         { name: "GitHub", icon: Github, href: "https://github.com" },

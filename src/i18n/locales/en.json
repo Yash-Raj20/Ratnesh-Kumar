@@ -680,5 +680,61 @@
                 "content": "A true professional who brings creativity to every problem. The new landing page increased our conversions by 40%."
             }
         }
+    },
+    "booking": {
+        "title": "Booking",
+        "badge": "Strategy Session",
+        "heading": "Let's build your ",
+        "headingHighlight": "next big thing",
+        "description": "Book a free 15-minute discovery call to discuss your project roadmap, technical architecture, and how we can scale your vision.",
+        "features": {
+            "meet": {
+                "title": "15 Min Meet",
+                "desc": "Condensed & productive."
+            },
+            "location": {
+                "title": "Worldwide",
+                "desc": "Google Meet or Zoom."
+            }
+        },
+        "button": "Secure a Slot",
+        "sidebar": {
+            "available": "Next Available",
+            "time": "Tomorrow, 10:30 AM",
+            "pulse": "Slots closing fast",
+            "hint1": "Zero obligation consultation.",
+            "hint2": "Sync directly with your calendar."
+        },
+        "footer": "Independent Developer"
+    },
+    "components": {
+        "title": "UI Lab",
+        "subtitle": "Component Library",
+        "heading": "Components Library",
+        "desc": "Explore our curated collection of production-ready components built with Tailwind CSS and inspired by modern design patterns.",
+        "search": "Search 150+ components...",
+        "categories": {
+            "all": "All",
+            "glass": "Glassmorphism",
+            "neu": "Neumorphism",
+            "data": "Data Visuals",
+            "overlays": "Overlays",
+            "typo": "Typography"
+        },
+        "sidebar": {
+            "all": "All Components",
+            "buttons": "Buttons",
+            "inputs": "Inputs",
+            "nav": "Navigation",
+            "display": "Data Display",
+            "forms": "Forms",
+            "settings": "Settings",
+            "docs": "Documentation",
+            "upgrade": "Upgrade to Pro"
+        },
+        "card": {
+            "preview": "Preview",
+            "copy": "Copy Code"
+        }
     }
 }

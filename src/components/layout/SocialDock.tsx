@@ -4,14 +4,18 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SocialDock() {
+    const pathname = usePathname();
     const socials = [
         { icon: Github, href: "https://github.com", name: "GitHub" },
         { icon: Linkedin, href: "https://linkedin.com", name: "LinkedIn" },
         { icon: Twitter, href: "https://twitter.com", name: "Twitter" },
         { icon: Instagram, href: "https://instagram.com", name: "Instagram" },
     ];
+
+    if (pathname === "/components") return null;
 
     return (
         <div className="fixed left-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-4">

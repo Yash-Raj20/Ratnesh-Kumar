@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function CustomCursor() {
     const cursorX = useMotionValue(-100);
@@ -9,6 +10,7 @@ export default function CustomCursor() {
     const [isHovering, setIsHovering] = useState(false);
     const [isTextHover, setIsTextHover] = useState(false);
     const [isInput, setIsInput] = useState(false);
+    const pathname = usePathname();
 
     // Smoother spring config for premium feel
     const springConfig = { damping: 30, stiffness: 300 };
@@ -65,6 +67,7 @@ export default function CustomCursor() {
     }, [cursorX, cursorY]);
 
     if (isInput) return null;
+    if (pathname === "/components") return null;
 
     return (
         <motion.div
