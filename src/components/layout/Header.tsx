@@ -8,7 +8,7 @@ import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { AIAssistant } from "@/components/ui/AIAssistant";
-import { Menu, X, ArrowRight, Home, User, Layers, BookOpen, MessageSquare, Briefcase, Bot, Calculator, LayoutDashboard } from "lucide-react";
+import { Menu, X, ArrowRight, Home, User, Layers, BookOpen, MessageSquare, Briefcase, Bot, Calculator, LayoutDashboard, ServerCrash } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
@@ -136,6 +136,18 @@ export default function Header() {
                                             <LayoutDashboard size={20} className="text-primary" />
                                             <div className="flex flex-col">
                                                 <span className="text-sm font-bold">UI Lab</span>
+                                                <span className="text-[12px] text-zinc-500">Components Library</span>
+                                            </div>
+                                        </Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        asChild
+                                        className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer data-[highlighted]:bg-primary/10"
+                                    >
+                                        <Link href="https://vedix-ui.vercel.app/" target="_blank" className="w-full flex items-center gap-3">
+                                            <ServerCrash size={20} className="text-primary" />
+                                            <div className="flex flex-col">
+                                                <span className="text-sm font-bold">Vedix UI</span>
                                                 <span className="text-[12px] text-zinc-500">Components Library</span>
                                             </div>
                                         </Link>
