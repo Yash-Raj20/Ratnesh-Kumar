@@ -10,6 +10,7 @@ import { SpotlightBg } from "@/components/ui/SpotlightBg";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { I18nProvider } from "@/components/providers/I18nProvider";
 import { cn } from "@/lib/utils";
+import ChatWidget from "@/components/ui/ChatWidget";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -54,6 +55,7 @@ export default function RootLayout({
               <Header />
               <main className="min-h-screen">
                 {children}
+                <ChatWidget />
               </main>
               <Footer />
             </SmoothScroll>

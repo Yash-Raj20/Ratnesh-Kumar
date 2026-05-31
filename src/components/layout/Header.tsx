@@ -283,7 +283,7 @@ export default function Header() {
                 </div>
             </header>
 
-            <AIAssistant />
+            {/* <AIAssistant /> */}
         </>
     );
 }
