@@ -9,8 +9,8 @@ import { usePathname } from "next/navigation";
 export default function SocialDock() {
     const pathname = usePathname();
     const socials = [
-        { icon: Github, href: "https://github.com", name: "GitHub" },
-        { icon: Linkedin, href: "https://linkedin.com", name: "LinkedIn" },
+        { icon: Github, href: "https://github.com/Yash-Raj20", name: "GitHub" },
+        { icon: Linkedin, href: "https://www.linkedin.com/in/ratnesh-kumar20/", name: "LinkedIn" },
         { icon: Twitter, href: "https://twitter.com", name: "Twitter" },
         { icon: Instagram, href: "https://instagram.com", name: "Instagram" },
     ];

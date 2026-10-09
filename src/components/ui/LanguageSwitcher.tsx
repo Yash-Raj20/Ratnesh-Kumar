@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 const languages = [
-    { code: 'en', name: 'English', flag: 'https://flagcdn.com/w40/us.png' },
+    { code: 'en', name: 'English', flag: 'https://flagcdn.com/w40/in.png' },
     { code: 'hi', name: 'Hindi', flag: 'https://flagcdn.com/w40/in.png' },
     { code: 'gu', name: 'Gujarati', flag: 'https://flagcdn.com/w40/in.png' },
 ];

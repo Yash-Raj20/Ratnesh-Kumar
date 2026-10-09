@@ -11,58 +11,77 @@ import { useState } from "react";
 const resumes = [
     {
         id: 1,
-        title: "Frontend Developer",
+        title: "Full Stack Developer",
         file: "/resume/Frontend Resume.pdf",
-        description: "Specialized in React, Next.js, and modern UI engineering.",
-        date: "Feb 2026"
+        description: "Specialized in Next.js, React, Node.js, Laravel, and modern web applications.",
+        date: "2026"
     },
     {
         id: 2,
-        title: "React Native Developer",
+        title: "Frontend Developer",
         file: "/resume/React Native Resume.pdf",
-        description: "Focus on cross-platform mobile application development.",
-        date: "Jan 2026"
+        description: "Focus on responsive web design, state management, and modern UI engineering.",
+        date: "2026"
     }
 ];
 
 const experience = [
     {
-        company: "TechFlow",
-        role: "Senior Frontend Engineer",
-        period: "2023 - Present",
-        description: "Leading the frontend team, establishing design systems, and migrating legacy codebases to Next.js. Improved site performance by 40%.",
-        technologies: ["Next.js", "TypeScript", "Tailwind", "AWS"]
+        company: "HisGro",
+        role: "Full Stack Engineer",
+        period: "Jan 2026 - Present",
+        description: "Developed and maintained HisGro, a production-level hair wellness e-commerce platform using Next.js, React, TypeScript, Laravel, and MySQL. Built HisGro Admin business management system (products, orders, WMS, coupons, marketing). Developed AI Hair Test, personalized recommendations, Cashfree/Razorpay, logistics (Delhivery, iThink Logistics), referral, and wallet APIs.",
+        technologies: ["Next.js", "React", "TypeScript", "Laravel", "MySQL", "Tailwind CSS"]
     },
     {
-        company: "Creative Studios",
+        company: "Urlwebwala",
         role: "Frontend Developer",
-        period: "2021 - 2023",
-        description: "Built award-winning experiential websites for major brands using WebGL and GSAP. Collaborated closely with designers to implement pixel-perfect UIs.",
-        technologies: ["React", "GSAP", "Three.js", "WebGL"]
+        period: "Dec 2025 - Present",
+        description: "Developed responsive and modern web interfaces for client projects. Built reusable components using React.js, Next.js, JavaScript, HTML, CSS & Tailwind CSS with a focus on mobile-first design.",
+        technologies: ["React.js", "Next.js", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"]
     },
     {
-        company: "StartUp Inc",
-        role: "Junior Developer",
-        period: "2020 - 2021",
-        description: "Key member of the launch team for a fintech mobile app. Implemented core UI components and integrated RESTful APIs.",
-        technologies: ["React Native", "Redux", "Firebase"]
+        company: "WebNX Pvt. Ltd",
+        role: "Web Developer (Internship)",
+        period: "Aug 2024 - Jan 2025",
+        description: "Built responsive, cross-platform user interfaces using React.js and Tailwind CSS. Designed intuitive UI components, integrated token & session auth flows, and collaborated for pixel-perfect brand alignment.",
+        technologies: ["React.js", "Tailwind CSS", "JavaScript", "Token Auth", "REST APIs"]
+    },
+    {
+        company: "Silver Oak University",
+        role: "Frontend Developer (Apprenticeship)",
+        period: "Apr 2024 - Jul 2024",
+        description: "Completed hands-on trainee program covering both frontend and backend technologies (React, Node.js, Express, MongoDB). Gained practical experience in building full-stack web applications and integrating RESTful APIs using Context API.",
+        technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Context API"]
     }
 ];
 
 const education = [
     {
-        school: "University of Technology",
-        degree: "B.Tech in Computer Science",
-        period: "2016 - 2020",
-        description: "Specialized in Human-Computer Interaction. heavy focus on Algorithms and Data Structures."
+        school: "Aditya Silver Oak Institute Of Technology",
+        degree: "B.Tech in Computer Engineering | CGPA: 8.62 / 10.0",
+        period: "Nov 2022 - Present",
+        description: "Specialized in Computer Engineering with practical focus on Full Stack Development, Data Structures, Web Technologies, and Software Architecture."
+    },
+    {
+        school: "R.S.S Science College",
+        degree: "Intermediate (Science) | Percentage: 68.2 / 100",
+        period: "Apr 2019 - Jun 2021",
+        description: "Focused on Physics, Chemistry, and Mathematics."
+    },
+    {
+        school: "Sitamarhi High School",
+        degree: "Matric (X) | Percentage: 82.0 / 100",
+        period: "Jan 2019",
+        description: "Completed secondary education with distinction in Science and Mathematics."
     }
 ];
 
 const skills = [
-    { category: "Languages", items: ["JavaScript (ES6+)", "TypeScript", "Python", "HTML5", "CSS3"] },
-    { category: "Frameworks", items: ["React", "Next.js", "React Native", "Express", "Tailwind CSS"] },
-    { category: "Tools", items: ["Git", "Docker", "Figma", "VS Code", "Webpack", "Vite"] },
-    { category: "Platform", items: ["Vercel", "AWS", "Firebase", "Netlify"] }
+    { category: "Frontend", items: ["JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "Bootstrap", "Material UI", "HTML5", "CSS3", "React Native"] },
+    { category: "Backend", items: ["Node.js", "Express.js", "Laravel", "RESTful APIs", "JWT Authentication", "MongoDB", "MySQL"] },
+    { category: "Tools & Platforms", items: ["Git", "GitHub", "Postman", "VS Code", "Vercel", "Render", "npm", "Webpack", "Chrome DevTools"] },
+    { category: "Soft Skills", items: ["Problem Solving", "Debugging", "Team Collaboration", "API Integration", "Clean Code Practices"] }
 ];
 
 export default function ResumePage() {
@@ -112,24 +131,27 @@ export default function ResumePage() {
                         {/* Resume Header */}
                         <div className="border-b border-border/50 pb-12 mb-12 flex flex-col md:flex-row justify-between gap-8 items-start">
                             <div>
-                                <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 print:text-black">Ratnesh</h1>
-                                <p className="text-xl text-primary font-medium mb-6 print:text-black">Senior Full Stack Engineer</p>
+                                <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 print:text-black">Ratnesh Kumar</h1>
+                                <p className="text-xl text-primary font-medium mb-6 print:text-black">Full Stack Developer</p>
                                 <p className="text-muted-foreground max-w-lg leading-relaxed print:text-gray-600">
-                                    Product-minded developer with 8+ years of experience building scalable web applications. Obsessed with performance, clean code, and user experience.
+                                    Enthusiastic and dedicated Full Stack Developer skilled in building dynamic web applications using React.js, Next.js, Node.js, Laravel, and MySQL. Focused on creating seamless user experiences and performant APIs.
                                 </p>
                             </div>
                             <div className="flex flex-col gap-3 text-sm text-muted-foreground print:text-gray-600">
                                 <div className="flex items-center gap-3">
-                                    <Mail className="w-4 h-4" /> hello@ratnesh.dev
+                                    <Mail className="w-4 h-4 text-primary" /> ratneshkumarstm987@gmail.com
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <Globe className="w-4 h-4" /> www.ratnesh.dev
+                                    <Phone className="w-4 h-4 text-primary" /> (+91) 9835854042
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <MapPin className="w-4 h-4" /> India (Remote)
+                                    <Globe className="w-4 h-4 text-primary" /> github.com/Yash-Raj20
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <Briefcase className="w-4 h-4" /> Available for hire
+                                    <MapPin className="w-4 h-4 text-primary" /> New Ashok Nagar, Delhi / Ahmedabad
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <Briefcase className="w-4 h-4 text-primary" /> Available for opportunities
                                 </div>
                             </div>
                         </div>

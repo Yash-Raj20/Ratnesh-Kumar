@@ -64,8 +64,8 @@ export default function ContactPage() {
         {
             icon: Mail,
             title: t('contactPage.info.email.title'),
-            value: "hello@ratnesh.dev",
-            link: "mailto:hello@ratnesh.dev",
+            value: "ratneshkumarstm987@gmail.com",
+            link: "mailto:ratneshkumarstm987@gmail.com",
             description: t('contactPage.info.email.desc')
         },
         {
@@ -79,15 +79,15 @@ export default function ContactPage() {
             icon: MessageSquare,
             title: t('contactPage.info.socials.title'),
             value: t('contactPage.info.socials.value'),
-            link: "#",
+            link: "https://www.linkedin.com/in/ratnesh-kumar20/",
             description: t('contactPage.info.socials.desc')
         }
     ];
 
     const socialLinks = [
-        { name: "LinkedIn", icon: Linkedin, href: "#", color: "hover:bg-[#0077b5]" },
-        { name: "Twitter", icon: Twitter, href: "#", color: "hover:bg-[#1DA1F2]" },
-        { name: "GitHub", icon: Github, href: "#", color: "hover:bg-[#333]" },
+        { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/ratnesh-kumar20/", color: "hover:bg-[#0077b5]" },
+        { name: "Twitter", icon: Twitter, href: "https://twitter.com", color: "hover:bg-[#1DA1F2]" },
+        { name: "GitHub", icon: Github, href: "https://github.com/Yash-Raj20", color: "hover:bg-[#333]" },
     ];
 
     const timelineSteps = [

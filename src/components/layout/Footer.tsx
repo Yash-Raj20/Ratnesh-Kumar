@@ -16,8 +16,8 @@ export default function Footer() {
     if (pathname === "/components") return null;
 
     const socialLinks = [
-        { name: "GitHub", icon: Github, href: "https://github.com" },
-        { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
+        { name: "GitHub", icon: Github, href: "https://github.com/Yash-Raj20" },
+        { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/ratnesh-kumar20/" },
         { name: "Twitter", icon: Twitter, href: "https://twitter.com" },
         { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
     ];

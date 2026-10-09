@@ -46,7 +46,7 @@ export default function Hero() {
                 {t("hero.greeting")} {t("hero.title")}
             </h2>
 
-            <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] font-heading font-bold tracking-tighter leading-[1.1] max-w-6xl">
+            <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] font-heading font-bold tracking-tighter leading-[1.1] max-w-7xl capitalize">
                 <div className="overflow-hidden py-2">
                     <span className="hero-text-line block">
                         {t("hero.headingLine1")}

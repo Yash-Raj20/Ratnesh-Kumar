@@ -34,6 +34,7 @@ const commands: CommandItem[] = [
     { id: "blog", name: "Blog", icon: BookOpen, href: "/blog", category: "Navigation" },
     { id: "contact", name: "Contact", icon: MessageSquare, href: "/contact", category: "Navigation" },
     { id: "github", name: "GitHub Profile", icon: Github, href: "https://github.com/Yash-Raj20", category: "Social" },
+    { id: "linkedin", name: "LinkedIn Profile", icon: Github, href: "https://www.linkedin.com/in/ratnesh-kumar20/", category: "Social" },
     { id: "resume", name: "View Resume", icon: FileText, href: "/resume", category: "Resources" },
     // Adding more duplicates to test scroll if needed
     { id: "skills", name: "Technical Skills", icon: Layers, href: "/#skills", category: "Navigation" },

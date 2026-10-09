@@ -34,20 +34,20 @@
     },
     "hero": {
         "greeting": "Hi, I'm",
-        "title": "Frontend Developer",
+        "title": "Full Stack Developer",
         "headingLine1": "Building dynamic",
         "headingLine2": "web applications.",
-        "description": "Enthusiastic and dedicated Frontend Developer focused on creating seamless, interactive user experiences with attention to performance and UI/UX optimization."
+        "description": "Enthusiastic and dedicated Full Stack Developer skilled in building dynamic web applications using React.js, Next.js, JavaScript, Node.js, Laravel, and modern web tools."
     },
     "about": {
         "title": "About Me",
         "heading1": "Passionate about",
         "heading2": "seamless UX.",
-        "description": "I am a Frontend Developer with hands-on experience in React.js, JavaScript, and modern frontend tools. I specialize in responsive design, state management, and API integration, always aiming for scalable, pixel-perfect interfaces that align with brand identity.",
+        "description": "I am a Full Stack Developer with hands-on experience in building production-level e-commerce platforms, management systems, and dynamic web applications using React.js, Next.js, Node.js, Laravel, and Tailwind CSS.",
         "journey": "My Journey",
-        "perf": "Performance Optimized",
-        "design": "UI/UX Focused",
-        "access": "React.js & Tailwind"
+        "perf": "Full Stack Web Apps",
+        "design": "React.js & Next.js",
+        "access": "Laravel & REST APIs"
     },
     "skills": {
         "title": "Technical Proficiency",
@@ -87,24 +87,44 @@
         "heading": "Crafting Digital Excellence",
         "items": {
             "1": {
-                "title": "Janseva Portal",
-                "category": "Civic Platform",
-                "description": "Civic issue reporting platform for Viksit Bharat initiative using React, Node, and Socket.io."
+                "title": "HisGro E-Commerce Platform",
+                "category": "Full Stack / E-Commerce",
+                "description": "Production-level hair wellness e-commerce platform with AI Hair Test, Cashfree/Razorpay, logistics, and referrals."
             },
             "2": {
-                "title": "Heavenstay",
-                "category": "Booking Platform",
-                "description": "Full-stack Airbnb-inspired villa booking app with CRUD, auth, and responsive UI."
+                "title": "HisGro Admin ERP & WMS",
+                "category": "Business Management System",
+                "description": "Centralized business management platform with stock ledger-based WMS, orders, coupons, doctor registrations, and analytics."
             },
             "3": {
-                "title": "Portfolio Website",
-                "category": "Web Design",
-                "description": "Modern, high-performance portfolio website built with Next.js, Framer Motion, and GSAP."
+                "title": "Janseva Portal",
+                "category": "Civic Platform",
+                "description": "Civic issue reporting platform for Viksit Bharat initiative with role-based dashboards, Socket.io, and Cloudinary uploads."
             },
             "4": {
-                "title": "FitIndia",
+                "title": "CareerPath AI",
+                "category": "AI Platform",
+                "description": "AI-powered career guidance platform with dynamic skill roadmaps and personalized career recommendations."
+            },
+            "5": {
+                "title": "Heavenstay Villa Booking",
+                "category": "Booking Platform",
+                "description": "Full-stack Airbnb-inspired luxury villa booking application with complete CRUD, auth, and responsive UI."
+            },
+            "6": {
+                "title": "Portfolio Website",
+                "category": "Web Design",
+                "description": "Modern, high-performance portfolio website built with Next.js, Framer Motion, GSAP, and i18n."
+            },
+            "7": {
+                "title": "FitIndia App",
                 "category": "Health & Fitness",
-                "description": "FitIndia app is a health and fitness app that helps users track their fitness goals and progress."
+                "description": "Health and fitness web app helping users track daily workouts, calorie goals, and fitness progress."
+            },
+            "8": {
+                "title": "Vedix UI System",
+                "category": "UI Framework",
+                "description": "Modern, open-source Tailwind CSS & React component library for building high-performance web applications."
             }
         }
     },
@@ -135,16 +155,28 @@
         "title": "Work Experience",
         "items": {
             "0": {
-                "company": "WebNX Pvt. Ltd",
-                "role": "Web Developer",
-                "period": "Sep 2024 - Jan 2025",
-                "description": "Built responsive, cross-platform UI using React.js and Tailwind CSS. Integrated secure authentication and collaborated with designers for pixel-perfect brand alignment."
+                "company": "HisGro",
+                "role": "Full Stack Engineer",
+                "period": "Jan 2026 - Present",
+                "description": "Developed and maintained HisGro e-commerce platform & HisGro Admin system using Next.js, React, TypeScript, Laravel, and MySQL. Built AI Hair Test, payment gateways, and logistics integrations."
             },
             "1": {
+                "company": "Urlwebwala",
+                "role": "Frontend Developer",
+                "period": "Dec 2025 - Present",
+                "description": "Developed responsive and modern web interfaces for client projects using React.js, Next.js, JavaScript, and Tailwind CSS with a mobile-first focus."
+            },
+            "2": {
+                "company": "WebNX Pvt. Ltd",
+                "role": "Web Developer",
+                "period": "Aug 2024 - Jan 2025",
+                "description": "Built responsive, cross-platform UI using React.js and Tailwind CSS. Integrated secure token auth flows and session management."
+            },
+            "3": {
                 "company": "Silver Oak University",
-                "role": "Internship Trainee",
-                "period": "Internship",
-                "description": "Gained practical experience in frontend/backend technologies. Built responsive web apps and integrated RESTful APIs using Context API for state management."
+                "role": "Frontend Developer Trainee",
+                "period": "Apr 2024 - Jul 2024",
+                "description": "Hands-on internship program covering React.js, Node.js, Express, MongoDB, and Context API. Integrated RESTful APIs for dynamic web applications."
             }
         }
     },
@@ -230,8 +262,8 @@
         "title": "The Person Behind The Code",
         "heading1": "Design driven.",
         "heading2": "Engineering focused.",
-        "para1": "Hi, I'm Ratnesh. I sit at the intersection of design and engineering. My philosophy is simple: technology should be invisible, and experiences should be unforgettable.",
-        "para2": "With over 8 years of experience shipping production-grade software, I've learned that the secret to great products isn't just clean code or pretty pixels—it's how they work together to solve real human problems.",
+        "para1": "Hi, I'm Ratnesh Kumar. I sit at the intersection of full stack engineering and modern user experience. My philosophy is simple: write clean code, build scalable architecture, and create impactful digital products.",
+        "para2": "With experience shipping production-grade platforms like HisGro and Janseva Portal, I specialize in Next.js, React, Node.js, Laravel, and database systems to solve real human problems.",
         "stats": {
             "exp": "Years Experience",
             "projects": "Projects Completed",
@@ -264,28 +296,28 @@
         "title": "My Journey",
         "items": {
             "0": {
-                "title": "Senior Frontend Engineer",
-                "subtitle": "TechFlow",
-                "description": "Leading the frontend team, establishing design systems, and migrating legacy codebases to Next.js.",
-                "year": "2023 - Present"
+                "title": "Full Stack Engineer",
+                "subtitle": "HisGro",
+                "description": "Developing production hair wellness e-commerce platform and business management ERP system using Next.js, React, Laravel & MySQL.",
+                "year": "Jan 2026 - Present"
             },
             "1": {
                 "title": "Frontend Developer",
-                "subtitle": "Creative Studios",
-                "description": "Built award-winning experiential websites for major brands using WebGL and GSAP.",
-                "year": "2021 - 2023"
+                "subtitle": "Urlwebwala",
+                "description": "Building modern, responsive client websites using React.js, Next.js, and Tailwind CSS.",
+                "year": "Dec 2025 - Present"
             },
             "2": {
-                "title": "Junior Developer",
-                "subtitle": "StartUp Inc",
-                "description": "Collaborated on the launch of a fintech mobile app, focusing on UI implementation.",
-                "year": "2020 - 2021"
+                "title": "Web Developer",
+                "subtitle": "WebNX Pvt. Ltd",
+                "description": "Developed responsive UIs, token authentication flows, and accessibility-first web components.",
+                "year": "Aug 2024 - Jan 2025"
             },
             "3": {
-                "title": "B.Tech in Computer Science",
-                "subtitle": "University of Technology",
-                "description": "Specialized in Human-Computer Interaction and Web Technologies.",
-                "year": "2016 - 2020"
+                "title": "Computer Engineering (B.Tech)",
+                "subtitle": "Aditya Silver Oak Institute Of Technology",
+                "description": "Hands-on engineering degree focusing on full-stack web technologies and software engineering.",
+                "year": "Nov 2022 - Present"
             }
         }
     },
